@@ -1918,9 +1918,6 @@ function levelSpouse(){
 }
 
 function levelChild(){
-	if (childStatGrowth.length == 0){
-		generateChildBases();
-	}
 	className = childClass.value;
 	if (["Lord", "Great Lord", "Taguel"].includes(className)){
 		className += " (" + genders.get(child.innerHTML) + ")";
@@ -1928,6 +1925,9 @@ function levelChild(){
 	let maxLevel = 20;
 	if (specialClasses.includes(childReclasses[childReclasses.length-1][0])){
 		maxLevel = 30;
+	}
+	if (childStatGrowth.length == 0){
+		generateChildBases();
 	}
 	if (className == childReclasses[childReclasses.length-1][0] && childReclasses[childReclasses.length-1][1] < maxLevel){
 		childReclasses[childReclasses.length-1][1] = childLevel.value;
@@ -1955,9 +1955,6 @@ function levelChild(){
 }
 
 function levelSibling(){
-	if (siblingStatGrowth.length == 0){
-		generateSiblingBases();
-	}
 	className = siblingClass.value;
 	if (["Lord", "Great Lord", "Taguel"].includes(className)){
 		className += " (" + genders.get(sibling.innerHTML) + ")";
@@ -1965,6 +1962,9 @@ function levelSibling(){
 	let maxLevel = 20;
 	if (specialClasses.includes(siblingReclasses[siblingReclasses.length-1][0])){
 		maxLevel = 30;
+	}
+	if (siblingStatGrowth.length == 0){
+		generateSiblingBases();
 	}
 	if (className == siblingReclasses[siblingReclasses.length-1][0] && siblingReclasses[siblingReclasses.length-1][1] < maxLevel){
 		siblingReclasses[siblingReclasses.length-1][1] = siblingLevel.value;

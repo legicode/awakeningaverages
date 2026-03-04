@@ -269,7 +269,7 @@
 					<option value="hard">Hard</option>
 					<option value="lunatic">Lunatic</option>
 				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				Robin's asset: &nbsp<select id="asset2" onChange="updateAssetFlaw()">
+				Robin's asset: &nbsp<select id="asset2" onChange="asset.value = this.value; updateAssetFlaw()">
 					<option value="HP">HP</option>
 					<option value="Strength">Strength</option>
 					<option value="Magic">Magic</option>
@@ -279,17 +279,17 @@
 					<option value="Defense">Defense</option>
 					<option value="Resistance">Resistance</option>
 				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				Aptitude: &nbsp<select id="aptitude2" onChange="updateAptitude()">
+				Aptitude: &nbsp<select id="aptitude2" onChange="aptitude.value = this.value; updateAptitude()">
 					<option value="aptitudeBoth">Donnel & Kid</option>
 					<option value="aptitudeDonnel">Donnel only</option>
 					<option value="aptitudeKid">Kid only?</option>
 					<option value="aptitudeNone">Neither???</option>
 				</select><br />
-				Growths mode: &nbsp<select id="growthsMode2" onChange="growthsMode.value = this.value; updateGrowthsMode2()">
+				Growths mode: &nbsp<select id="growthsMode2" onChange="growthsMode.value = this.value; updateGrowthsMode()">
 					<option value="average">Average</option>
 					<option value="fixed">Fixed</option>
 				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				Robin's flaw: &nbsp<select id="flaw2" onChange="updateAssetFlaw()">
+				Robin's flaw: &nbsp<select id="flaw2" onChange="flaw.value = this.value; updateAssetFlaw()">
 					<option value="HP">HP</option>
 					<option value="Strength">Strength</option>
 					<option value="Magic">Magic</option>
