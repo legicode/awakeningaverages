@@ -25,12 +25,12 @@
 			</td></tr>
 
 			<tr><td class="options">
-				&nbsp&nbsp&nbsp Difficulty: &nbsp<select id="difficulty" onChange="updateDifficulty(); difficulty2.value = this.value">
+				&nbsp&nbsp&nbsp Difficulty: &nbsp<select id="difficulty" onChange="difficulty2.value = this.value; updateDifficulty()">
 					<option value="normal">Normal</option>
 					<option value="hard">Hard</option>
 					<option value="lunatic">Lunatic</option>
 				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				Robin's asset: &nbsp<select id="asset" onChange="updateAssetFlaw(); asset2.value = this.value">
+				Robin's asset: &nbsp<select id="asset" onChange="asset2.value = this.value; updateAssetFlaw()">
 					<option value="HP">HP</option>
 					<option value="Strength">Strength</option>
 					<option value="Magic">Magic</option>
@@ -40,17 +40,17 @@
 					<option value="Defense">Defense</option>
 					<option value="Resistance">Resistance</option>
 				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				Aptitude: &nbsp<select id="aptitude" onChange="updateAptitude(); aptitude2.value = this.value">
+				Aptitude: &nbsp<select id="aptitude" onChange="aptitude2.value = this.value; updateAptitude()">
 					<option value="aptitudeBoth">Donnel & Kid</option>
 					<option value="aptitudeDonnel">Donnel only</option>
 					<option value="aptitudeKid">Kid only?</option>
 					<option value="aptitudeNone">Neither???</option>
 				</select><br />
-				Growths mode: &nbsp<select id="growthsMode" onChange="updateGrowthsMode(); growthsMode2.value = this.value">
+				Growths mode: &nbsp<select id="growthsMode" onChange="growthsMode2.value = this.value; updateGrowthsMode()">
 					<option value="average">Average</option>
 					<option value="fixed">Fixed</option>
 				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				Robin's flaw: &nbsp<select id="flaw" onChange="updateAssetFlaw(); flaw2.value = this.value">
+				Robin's flaw: &nbsp<select id="flaw" onChange="flaw2.value = this.value; updateAssetFlaw()">
 					<option value="HP">HP</option>
 					<option value="Strength">Strength</option>
 					<option value="Magic">Magic</option>
@@ -60,7 +60,7 @@
 					<option value="Defense">Defense</option>
 					<option value="Resistance">Resistance</option>
 				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				Transformations: &nbsp<select id="transformations" onChange="updateTransformations(); transformations2.value = this.value">
+				Transformations: &nbsp<select id="transformations" onChange="transformations2.value = this.value; updateTransformations()">
 					<option value="none">None</option>
 					<option value="regular">Regular</option>
 					<option value="plus">Plus</option>
@@ -72,10 +72,10 @@
 			<tr>
 				<td class="calculator">
 					<h2>Parent 1</h2>
-					Character: <select id="parent" onChange="updateParent(); parent2.value = this.value">
+					Character: <select id="parent" onChange="parent2.value = this.value; updateParent()">
 						<option value="Robin (M)">Robin (M)</option>
 					</select>&nbsp&nbsp&nbsp&nbsp
-					Class: <select id="parentClass" onChange="updateParentLevels(); parentClass2.value = this.value">
+					Class: <select id="parentClass" onChange="parentClass2.value = this.value; updateParentLevels()">
 						<option value="Tactician">Tactician</option>
 					</select>&nbsp&nbsp&nbsp&nbsp
 					Level to: <select id="parentLevel" onChange="parentLevel2.value = this.value">
@@ -112,10 +112,10 @@
 							<td><b>1</b></td>
 						</tr>
 					</table><br />
-					Character: <select id="parent2" onChange="updateParent(); parent.value = this.value">
+					Character: <select id="parent2" onChange="parent.value = this.value; updateParent()">
 						<option value="Robin (M)">Robin (M)</option>
 					</select>&nbsp&nbsp&nbsp&nbsp
-					Class: <select id="parentClass2" onChange="updateParentLevels(); parentClass.value = this.value">
+					Class: <select id="parentClass2" onChange="parentClass.value = this.value; updateParentLevels()">
 						<option value="Tactician">Tactician</option>
 					</select>&nbsp&nbsp&nbsp&nbsp
 					Level to: <select id="parentLevel2" onChange="parentLevel.value = this.value">
@@ -126,11 +126,11 @@
 				</td>
 				<td class="calculator">
 					<h2>Parent 2</h2>
-					Character: <select id="spouse" onChange="updateSpouse(); spouse2.value = this.value">
+					Character: <select id="spouse" onChange="spouse2.value = this.value; updateSpouse()">
 						<option value="Sumia">Sumia</option>
 						<option value="Robin (M)">Robin (M)</option>
 					</select>&nbsp&nbsp&nbsp&nbsp
-					Class: <select id="spouseClass" onChange="updateSpouseLevels(); spouseClass2.value = this.value">
+					Class: <select id="spouseClass" onChange="spouseClass2.value = this.value; updateSpouseLevels()">
 						<option value="Pegasus Knight">Pegasus Knight</option>
 					</select>&nbsp&nbsp&nbsp&nbsp
 					Level to: <select id="spouseLevel" onChange="spouseLevel2.value = this.value">
@@ -168,11 +168,11 @@
 							<td><b>1</b></td>
 						</tr>
 					</table><br />
-					Character: <select id="spouse2" onChange="updateSpouse(); spouse.value = this.value">
+					Character: <select id="spouse2" onChange="spouse.value = this.value; updateSpouse()">
 						<option value="Sumia">Sumia</option>
 						<option value="Robin (M)">Robin (M)</option>
 					</select>&nbsp&nbsp&nbsp&nbsp
-					Class: <select id="spouseClass2" onChange="updateSpouseLevels(); spouseClass.value = this.value">
+					Class: <select id="spouseClass2" onChange="spouseClass.value = this.value; updateSpouseLevels()">
 						<option value="Pegasus Knight">Pegasus Knight</option>
 					</select>&nbsp&nbsp&nbsp&nbsp
 					Level to: <select id="spouseLevel2" onChange="spouseLevel.value = this.value">
@@ -187,7 +187,7 @@
 					<h2>Child 1</h2>
 					<button type="button" id="resetChild" onClick="generateChildBases()">Generate base stats</button><br /><br />
 					Character: <b><span id="child">Morgan</span></b>&nbsp&nbsp&nbsp
-					Class: <select id="childClass" onChange="updateChildLevels(); childClass2.value = this.value">
+					Class: <select id="childClass" onChange="childClass2.value = this.value; updateChildLevels()">
 						<option value="Pegasus Knight">Pegasus Knight</option>
 					</select>&nbsp&nbsp&nbsp&nbsp
 					Level to: <select id="childLevel" onChange="childLevel2.value = this.value">
@@ -212,7 +212,7 @@
 						</tr>
 					</table><br />
 					Character: <b><span id="child2">Morgan</span></b>&nbsp&nbsp&nbsp
-					Class: <select id="childClass2" onChange="updateChildLevels(); childClass.value = this.value">
+					Class: <select id="childClass2" onChange="childClass.value = this.value; updateChildLevels()">
 						<option value="Pegasus Knight">Pegasus Knight</option>
 					</select>&nbsp&nbsp&nbsp&nbsp
 					Level to: <select id="childLevel2" onChange="childLevel.value = this.value">
@@ -225,7 +225,7 @@
 					<h2>Child 2</h2>
 					<button type="button" id="resetSibling" onClick="generateSiblingBases()">Generate base stats</button><br /><br />
 					Character: <b><span id="sibling">Cynthia</span></b>&nbsp&nbsp&nbsp
-					Class: <select id="siblingClass" onChange="updateSiblingLevels(); siblingClass2.value = this.value">
+					Class: <select id="siblingClass" onChange="siblingClass2.value = this.value; updateSiblingLevels()">
 						<option value="Pegasus Knight">Pegasus Knight</option>
 					</select>&nbsp&nbsp&nbsp&nbsp
 					Level to: <select id="siblingLevel" onChange="siblingLevel2.value = this.value">
@@ -250,7 +250,7 @@
 						</tr>
 					</table><br />
 					Character: <b><span id="sibling2">Cynthia</span></b>&nbsp&nbsp&nbsp
-					Class: <select id="siblingClass2" onChange="updateSiblingLevels(); siblingClass.value = this.value">
+					Class: <select id="siblingClass2" onChange="siblingClass.value = this.value; updateSiblingLevels()">
 						<option value="Pegasus Knight">Pegasus Knight</option>
 					</select>&nbsp&nbsp&nbsp&nbsp
 					Level to: <select id="siblingLevel2" onChange="siblingLevel.value = this.value">
@@ -264,12 +264,12 @@
 
 		<table id="below">
 			<tr><td class="options">
-				&nbsp&nbsp&nbsp Difficulty: &nbsp<select id="difficulty2" onChange="updateDifficulty(); difficulty.value = this.value">
+				&nbsp&nbsp&nbsp Difficulty: &nbsp<select id="difficulty2" onChange="difficulty.value = this.value; updateDifficulty()">
 					<option value="normal">Normal</option>
 					<option value="hard">Hard</option>
 					<option value="lunatic">Lunatic</option>
 				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				Robin's asset: &nbsp<select id="asset2" onChange="updateAssetFlaw(); asset.value = this.value">
+				Robin's asset: &nbsp<select id="asset2" onChange="updateAssetFlaw()">
 					<option value="HP">HP</option>
 					<option value="Strength">Strength</option>
 					<option value="Magic">Magic</option>
@@ -279,17 +279,17 @@
 					<option value="Defense">Defense</option>
 					<option value="Resistance">Resistance</option>
 				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				Aptitude: &nbsp<select id="aptitude2" onChange="updateAptitude(); aptitude.value = this.value">
+				Aptitude: &nbsp<select id="aptitude2" onChange="updateAptitude()">
 					<option value="aptitudeBoth">Donnel & Kid</option>
 					<option value="aptitudeDonnel">Donnel only</option>
 					<option value="aptitudeKid">Kid only?</option>
 					<option value="aptitudeNone">Neither???</option>
 				</select><br />
-				Growths mode: &nbsp<select id="growthsMode2" onChange="updateGrowthsMode(); growthsMode.value = this.value">
+				Growths mode: &nbsp<select id="growthsMode2" onChange="growthsMode.value = this.value; updateGrowthsMode2()">
 					<option value="average">Average</option>
 					<option value="fixed">Fixed</option>
 				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				Robin's flaw: &nbsp<select id="flaw2" onChange="updateAssetFlaw(); flaw.value = this.value">
+				Robin's flaw: &nbsp<select id="flaw2" onChange="updateAssetFlaw()">
 					<option value="HP">HP</option>
 					<option value="Strength">Strength</option>
 					<option value="Magic">Magic</option>
@@ -299,7 +299,7 @@
 					<option value="Defense">Defense</option>
 					<option value="Resistance">Resistance</option>
 				</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-				Transformations: &nbsp<select id="transformations2" onChange="updateTransformations(); transformations.value = this.value">
+				Transformations: &nbsp<select id="transformations2" onChange="transformations.value = this.value; updateTransformations()">
 					<option value="none">None</option>
 					<option value="regular">Regular</option>
 					<option value="plus">Plus</option>
