@@ -72,9 +72,15 @@
 			<tr>
 				<td class="calculator">
 					<h2>Parent 1</h2>
-					Character: <select id="parent" onChange="updateParent(); parent2.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp
-					Class: <select id="parentClass" onChange="updateParentLevels(); parentClass2.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp
-					Level to: <select id="parentLevel" onChange="parentLevel2.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					Character: <select id="parent" onChange="updateParent(); parent2.value = this.value">
+						<option value="Robin (M)">Robin (M)</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Class: <select id="parentClass" onChange="updateParentLevels(); parentClass2.value = this.value">
+						<option value="Tactician">Tactician</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="parentLevel" onChange="parentLevel2.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="levelParent()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="resetParent()">Reset all levels</button><br /><br />
 					<table class="statstable" id="parentStats">
@@ -92,24 +98,45 @@
 							<th>Mov</th>
 							<th class="levels">Internal</th>
 						</tr>
-						<tr>
-							<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+						<tr><td>Tactician</td>
+							<td><b><u>1</u></b></td>
+							<td>19</td>
+							<td>6</td>
+							<td>5</td>
+							<td>5</td>
+							<td>8</td>
+							<td>2</td>
+							<td>6</td>
+							<td>4</td>
+							<td>5</td>
+							<td><b>1</b></td>
 						</tr>
 					</table><br />
-					Character: <select id="parent2" onChange="updateParent(); parent.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp
-					Class: <select id="parentClass2" onChange="updateParentLevels(); parentClass.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp
-					Level to: <select id="parentLevel2" onChange="parentLevel.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					Character: <select id="parent2" onChange="updateParent(); parent.value = this.value">
+						<option value="Robin (M)">Robin (M)</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Class: <select id="parentClass2" onChange="updateParentLevels(); parentClass.value = this.value">
+						<option value="Tactician">Tactician</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="parentLevel2" onChange="parentLevel.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="levelParent()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="resetParent()">Reset all levels</button><br /><br /><br />
 				</td>
 				<td class="calculator">
 					<h2>Parent 2</h2>
-					Character: <select id="spouse" onChange="updateSpouse(); spouse2.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp
-					Class: <select id="spouseClass" onChange="updateSpouseLevels(); spouseClass2.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp
-					Level to: <select id="spouseLevel" onChange="spouseLevel2.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					Character: <select id="spouse" onChange="updateSpouse(); spouse2.value = this.value">
+						<option value="Sumia">Sumia</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Class: <select id="spouseClass" onChange="updateSpouseLevels(); spouseClass2.value = this.value">
+						<option value="Pegasus Knight">Pegasus Knight</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="spouseLevel" onChange="spouseLevel2.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="levelSpouse()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="resetSpouse()">Reset all levels</button><br /><br />
-
 					<table class="statstable" id="spouseStats">
 						<tr>
 							<th class="classes">Class</th>
@@ -126,12 +153,27 @@
 							<th class="levels">Internal</th>
 						</tr>
 						<tr>
-							<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+							<td>Pegasus Knight</td>
+							<td><b><u>1</u></b></td>
+							<td>18</td>
+							<td>6</td>
+							<td>3</td>
+							<td>11</td>
+							<td>11</td>
+							<td>8</td>
+							<td>5</td>
+							<td>7</td>
+							<td>7</td>
+							<td><b>1</b></td>
 						</tr>
 					</table><br />
-					Character: <select id="spouse2" onChange="updateSpouse(); spouse.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp
+					Character: <select id="spouse2" onChange="updateSpouse(); spouse.value = this.value">
+						<option value="Sumia">Sumia</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
 					Class: <select id="spouseClass2" onChange="updateSpouseLevels(); spouseClass.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp
-					Level to: <select id="spouseLevel2" onChange="spouseLevel.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="spouseLevel2" onChange="spouseLevel.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="levelSpouse()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="resetSpouse()">Reset all levels</button><br /><br /><br />
 				</td>
@@ -141,8 +183,12 @@
 					<h2>Child 1</h2>
 					<button type="button" id="resetChild" onClick="generateChildBases()">Generate base stats</button><br /><br />
 					Character: <b><span id="child">Morgan</span></b>&nbsp&nbsp&nbsp
-					Class: <select id="childClass" onChange="updateChildLevels(); childClass2.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp
-					Level to: <select id="childLevel" onChange="childLevel2.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					Class: <select id="childClass" onChange="updateChildLevels(); childClass2.value = this.value">
+						<option value="Pegasus Knight">Pegasus Knight</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="childLevel" onChange="childLevel2.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="levelChild()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="resetChild()">Reset all levels</button><br /><br />
 					<table class="statstable" id="childStats">
@@ -163,7 +209,9 @@
 					</table><br />
 					Character: <b><span id="child2">Morgan</span></b>&nbsp&nbsp&nbsp
 					Class: <select id="childClass2" onChange="updateChildLevels(); childClass.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp
-					Level to: <select id="childLevel2" onChange="childLevel.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="childLevel2" onChange="childLevel.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="levelChild()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="resetChild()">Reset all levels</button><br /><br /><br />
 				</td>
@@ -171,8 +219,12 @@
 					<h2>Child 2</h2>
 					<button type="button" id="resetSibling" onClick="generateSiblingBases()">Generate base stats</button><br /><br />
 					Character: <b><span id="sibling">Morgan</span></b>&nbsp&nbsp&nbsp
-					Class: <select id="siblingClass" onChange="updateSiblingLevels(); siblingClass2.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp
-					Level to: <select id="siblingLevel" onChange="siblingLevel2.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					Class: <select id="siblingClass" onChange="updateSiblingLevels(); siblingClass2.value = this.value">
+						<option value="Pegasus Knight">Pegasus Knight</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="siblingLevel" onChange="siblingLevel2.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="levelSibling()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="resetSibling()">Reset all levels</button><br /><br />
 					<table class="statstable" id="siblingStats">
@@ -192,8 +244,12 @@
 						</tr>
 					</table><br />
 					Character: <b><span id="sibling2">Morgan</span></b>&nbsp&nbsp&nbsp
-					Class: <select id="siblingClass2" onChange="updateSiblingLevels(); siblingClass.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp
-					Level to: <select id="siblingLevel2" onChange="siblingLevel.value = this.value"></select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+					Class: <select id="siblingClass2" onChange="updateSiblingLevels(); siblingClass.value = this.value">
+						<option value="Pegasus Knight">Pegasus Knight</option>
+					</select>&nbsp&nbsp&nbsp&nbsp
+					Level to: <select id="siblingLevel2" onChange="siblingLevel.value = this.value">
+						<option value="20">20</option>
+					</select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="levelSibling()">Add levels</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 					<button type="button" onClick="resetSibling()">Reset all levels</button><br /><br /><br />
 				</td>

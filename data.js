@@ -2128,7 +2128,11 @@ var siblingStats = document.getElementById("siblingStats");
 
 var levelCap = 50;
 
-for (let i = 0; i < 37; i++){
+spouse.remove(0);
+spouse2.remove(0);
+spouse[0] = new Option("Robin (M)");
+spouse2[0] = new Option("Robin (M)");
+for (let i = 1; i < 37; i++){
 	if (["Lonqu", "Sayri", "Yenfay"].includes(characters[i])){
 		parent[i] = new Option(characters[i].slice(0, 3) + "'" + characters[i].slice(3));
 		parent2[i] = new Option(characters[i].slice(0, 3) + "'" + characters[i].slice(3));
@@ -2144,15 +2148,6 @@ for (let i = 0; i < 37; i++){
 }
 spouse.selectedIndex = 10;
 spouse2.selectedIndex = 10;
-
-parentLevel[0] = new Option(20);
-spouseLevel[0] = new Option(20);
-childLevel[0] = new Option(20);
-siblingLevel[0] = new Option(20);
-parentLevel2[0] = new Option(20);
-spouseLevel2[0] = new Option(20);
-childLevel2[0] = new Option(20);
-siblingLevel2[0] = new Option(20);
 
 updateParent();
 updateSpouse();
