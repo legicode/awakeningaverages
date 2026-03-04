@@ -1164,11 +1164,11 @@ function generateChildBases(){
 		else if (childName == "Morgan" && childParents[1] == "Libra"){
 			childReclasses = [["Cleric", charBases.get(childName)[1]]];
 		}
-		else{
+		else {
 			childReclasses = [[classPools.get(childParents[1])[0], charBases.get(childName)[1]]];
 		}
 	}
-	else{
+	else {
 		childReclasses = [[charBases.get(childName)[0], charBases.get(childName)[1]]];
 	}
 	while (childClass.length > 0){
@@ -1230,11 +1230,11 @@ function generateSiblingBases(){
 		else if (siblingName == "Morgan" && siblingParents[1] == "Libra"){
 			siblingReclasses = [["Cleric", charBases.get(siblingName)[1]]];
 		}
-		else{
+		else {
 			siblingReclasses = [[classPools.get(siblingParents[1])[0], charBases.get(siblingName)[1]]];
 		}
 	}
-	else{
+	else {
 		siblingReclasses = [[charBases.get(siblingName)[0], charBases.get(siblingName)[1]]];
 	}
 	while (siblingClass.length > 0){
@@ -1348,7 +1348,7 @@ function generateParentTable(){
 					parentCurrentStats[9] += Math.floor((1*parentReclasses[i-1][1] + 20*promotedClasses.includes(parentReclasses[i-1][0]) - 1) / 2);
 				}
 			}
-			else{
+			else {
 				parentCurrentStats[9] += Math.floor((1*parentReclasses[i-1][1] + 20*promotedClasses.includes(parentReclasses[i-1][0]) - 1) / 2);
 			}
 		}
@@ -1493,7 +1493,7 @@ function generateSpouseTable(){
 					spouseCurrentStats[9] += Math.floor((1*spouseReclasses[i-1][1] + 20*promotedClasses.includes(spouseReclasses[i-1][0]) - 1) / 2);
 				}
 			}
-			else{
+			else {
 				spouseCurrentStats[9] += Math.floor((1*spouseReclasses[i-1][1] + 20*promotedClasses.includes(spouseReclasses[i-1][0]) - 1) / 2);
 			}
 		}
@@ -1633,7 +1633,7 @@ function generateChildTable(){
 					childCurrentStats[9] += Math.floor((1*childReclasses[i-1][1] + 20*promotedClasses.includes(childReclasses[i-1][0]) - 1) / 2);
 				}
 			}
-			else{
+			else {
 				childCurrentStats[9] += Math.floor((1*childReclasses[i-1][1] + 20*promotedClasses.includes(childReclasses[i-1][0]) - 1) / 2);
 			}
 		}
@@ -1773,7 +1773,7 @@ function generateSiblingTable(){
 					siblingCurrentStats[9] += Math.floor((1*siblingReclasses[i-1][1] + 20*promotedClasses.includes(siblingReclasses[i-1][0]) - 1) / 2);
 				}
 			}
-			else{
+			else {
 				siblingCurrentStats[9] += Math.floor((1*siblingReclasses[i-1][1] + 20*promotedClasses.includes(siblingReclasses[i-1][0]) - 1) / 2);
 			}
 		}
@@ -2028,45 +2028,49 @@ function resetSpouse(){
 }
 
 function resetChild(){
-	childReclasses = [[childReclasses[0][0], charBases.get(child.innerHTML)[1]]];
-	while (childClass.length > 0){
-		childClass.remove(0);
-		childClass2.remove(0);
-	}
-	classList = generateClassList(classPools.get(child.innerHTML), childReclasses[0][0], childReclasses[0][1]);
-	for (let i = 0; i < classList.length; i++){
-		if (classList[i].includes("(")){
-			childClass[i] = new Option(classList[i].slice(0, -4));
-			childClass2[i] = new Option(classList[i].slice(0, -4));
+	if (childStatGrowth.length > 0){
+		childReclasses = [[childReclasses[0][0], charBases.get(child.innerHTML)[1]]];
+		while (childClass.length > 0){
+			childClass.remove(0);
+			childClass2.remove(0);
 		}
-		else {
-			childClass[i] = new Option(classList[i]);
-			childClass2[i] = new Option(classList[i]);
+		classList = generateClassList(classPools.get(child.innerHTML), childReclasses[0][0], childReclasses[0][1]);
+		for (let i = 0; i < classList.length; i++){
+			if (classList[i].includes("(")){
+				childClass[i] = new Option(classList[i].slice(0, -4));
+				childClass2[i] = new Option(classList[i].slice(0, -4));
+			}
+			else {
+				childClass[i] = new Option(classList[i]);
+				childClass2[i] = new Option(classList[i]);
+			}
 		}
+		generateChildTable();
+		updateChildLevels();
 	}
-	generateChildTable();
-	updateChildLevels();
 }
 
 function resetSibling(){
-	siblingReclasses = [[siblingReclasses[0][0], charBases.get(sibling.innerHTML)[1]]];
-	while (siblingClass.length > 0){
-		siblingClass.remove(0);
-		siblingClass2.remove(0);
-	}
-	classList = generateClassList(classPools.get(sibling.innerHTML), siblingReclasses[0][0], siblingReclasses[0][1]);
-	for (let i = 0; i < classList.length; i++){
-		if (classList[i].includes("(")){
-			siblingClass[i] = new Option(classList[i].slice(0, -4));
-			siblingClass2[i] = new Option(classList[i].slice(0, -4));
+	if (siblingStatGrowth.length > 0){
+		siblingReclasses = [[siblingReclasses[0][0], charBases.get(sibling.innerHTML)[1]]];
+		while (siblingClass.length > 0){
+			siblingClass.remove(0);
+			siblingClass2.remove(0);
 		}
-		else {
-			siblingClass[i] = new Option(classList[i]);
-			siblingClass2[i] = new Option(classList[i]);
+		classList = generateClassList(classPools.get(sibling.innerHTML), siblingReclasses[0][0], siblingReclasses[0][1]);
+		for (let i = 0; i < classList.length; i++){
+			if (classList[i].includes("(")){
+				siblingClass[i] = new Option(classList[i].slice(0, -4));
+				siblingClass2[i] = new Option(classList[i].slice(0, -4));
+			}
+			else {
+				siblingClass[i] = new Option(classList[i]);
+				siblingClass2[i] = new Option(classList[i]);
+			}
 		}
+		generateSiblingTable();
+		updateSiblingLevels();
 	}
-	generateSiblingTable();
-	updateSiblingLevels();
 }
 
 var difficulty = document.getElementById("difficulty");
@@ -2137,7 +2141,7 @@ for (let i = 1; i < 37; i++){
 		spouse[i] = new Option(characters[i].slice(0, 3) + "'" + characters[i].slice(3));
 		spouse2[i] = new Option(characters[i].slice(0, 3) + "'" + characters[i].slice(3));
 	}
-	else{
+	else {
 		parent[i] = new Option(characters[i]);
 		parent2[i] = new Option(characters[i]);
 		spouse[i] = new Option(characters[i]);
