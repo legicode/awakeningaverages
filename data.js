@@ -917,8 +917,15 @@ function editClassList(kid, parent){
 
 function updateParentLevels(){
 	let currentClass = parentReclasses[parentReclasses.length-1][0];
+	if (["Lord", "Great Lord", "Taguel"].includes(currentClass)){
+		currentClass += " (" + genders.get(parent.value) + ")";
+	}
+	let selectedClass = parentClass.value;
+	if (["Lord", "Great Lord", "Taguel"].includes(selectedClass)){
+		selectedClass += " (" + genders.get(parent.value) + ")";
+	}
 	let maxLevel = 20;
-	if (specialClasses.includes(currentClass)){
+	if (specialClasses.includes(selectedClass)){
 		maxLevel = 30;
 	}
 	if (parentLevel[0].value == 20 && maxLevel == 30){
@@ -933,12 +940,8 @@ function updateParentLevels(){
 			parentLevel2.remove(0);
 		}
 	}
-	let selectedClass = parentClass.value
-	if (["Lord", "Great Lord", "Taguel"].includes(selectedClass)){
-		selectedClass += " (" + genders.get(parent.value) + ")";
-	}
 	let levelRange = maxLevel;
-	if (currentClass == selectedClass && parentReclasses[parentReclasses.length-1][1] < maxLevel){
+	if (selectedClass == currentClass && parentReclasses[parentReclasses.length-1][1] < maxLevel){
 		levelRange = maxLevel - parentReclasses[parentReclasses.length-1][1];
 	}
 	if (parentLevel.length > levelRange){
@@ -957,8 +960,15 @@ function updateParentLevels(){
 
 function updateSpouseLevels(){
 	let currentClass = spouseReclasses[spouseReclasses.length-1][0];
+	if (["Lord", "Great Lord", "Taguel"].includes(currentClass)){
+		currentClass += " (" + genders.get(spouse.value) + ")";
+	}
+	let selectedClass = spouseClass.value;
+	if (["Lord", "Great Lord", "Taguel"].includes(selectedClass)){
+		selectedClass += " (" + genders.get(spouse.value) + ")";
+	}
 	let maxLevel = 20;
-	if (specialClasses.includes(currentClass)){
+	if (specialClasses.includes(selectedClass)){
 		maxLevel = 30;
 	}
 	if (spouseLevel[0].value == 20 && maxLevel == 30){
@@ -973,12 +983,8 @@ function updateSpouseLevels(){
 			spouseLevel2.remove(0);
 		}
 	}
-	let selectedClass = spouseClass.value
-	if (["Lord", "Great Lord", "Taguel"].includes(selectedClass)){
-		selectedClass += " (" + genders.get(spouse.value) + ")";
-	}
 	let levelRange = maxLevel;
-	if (currentClass == selectedClass && spouseReclasses[spouseReclasses.length-1][1] < maxLevel){
+	if (selectedClass == currentClass && spouseReclasses[spouseReclasses.length-1][1] < maxLevel){
 		levelRange = maxLevel - spouseReclasses[spouseReclasses.length-1][1];
 	}
 	if (spouseLevel.length > levelRange){
@@ -997,8 +1003,15 @@ function updateSpouseLevels(){
 
 function updateChildLevels(){
 	let currentClass = childReclasses[childReclasses.length-1][0];
+	if (["Lord", "Great Lord", "Taguel"].includes(currentClass)){
+		currentClass += " (" + genders.get(child.innerHTML) + ")";
+	}
+	let selectedClass = childClass.value;
+	if (["Lord", "Great Lord", "Taguel"].includes(selectedClass)){
+		selectedClass += " (" + genders.get(child.innerHTML) + ")";
+	}
 	let maxLevel = 20;
-	if (specialClasses.includes(currentClass)){
+	if (specialClasses.includes(selectedClass)){
 		maxLevel = 30;
 	}
 	if (childLevel[0].value == 20 && maxLevel == 30){
@@ -1013,12 +1026,8 @@ function updateChildLevels(){
 			childLevel2.remove(0);
 		}
 	}
-	let selectedClass = childClass.value
-	if (["Lord", "Great Lord", "Taguel"].includes(selectedClass)){
-		selectedClass += " (" + genders.get(child.innerHTML) + ")";
-	}
 	let levelRange = maxLevel;
-	if (currentClass == selectedClass && childReclasses[childReclasses.length-1][1] < maxLevel){
+	if (selectedClass == currentClass && childReclasses[childReclasses.length-1][1] < maxLevel){
 		levelRange = maxLevel - childReclasses[childReclasses.length-1][1];
 	}
 	if (childLevel.length > levelRange){
@@ -1037,8 +1046,15 @@ function updateChildLevels(){
 
 function updateSiblingLevels(){
 	let currentClass = siblingReclasses[siblingReclasses.length-1][0];
+	if (["Lord", "Great Lord", "Taguel"].includes(currentClass)){
+		currentClass += " (" + genders.get(sibling.innerHTML) + ")";
+	}
+	let selectedClass = siblingClass.value;
+	if (["Lord", "Great Lord", "Taguel"].includes(selectedClass)){
+		selectedClass += " (" + genders.get(sibling.innerHTML) + ")";
+	}
 	let maxLevel = 20;
-	if (specialClasses.includes(currentClass)){
+	if (specialClasses.includes(selectedClass)){
 		maxLevel = 30;
 	}
 	if (siblingLevel[0].value == 20 && maxLevel == 30){
@@ -1053,12 +1069,8 @@ function updateSiblingLevels(){
 			siblingLevel2.remove(0);
 		}
 	}
-	let selectedClass = siblingClass.value
-	if (["Lord", "Great Lord", "Taguel"].includes(selectedClass)){
-		selectedClass += " (" + genders.get(sibling.innerHTML) + ")";
-	}
 	let levelRange = maxLevel;
-	if (currentClass == selectedClass && siblingReclasses[siblingReclasses.length-1][1] < maxLevel){
+	if (selectedClass == currentClass && siblingReclasses[siblingReclasses.length-1][1] < maxLevel){
 		levelRange = maxLevel - siblingReclasses[siblingReclasses.length-1][1];
 	}
 	if (siblingLevel.length > levelRange){
