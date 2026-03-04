@@ -498,7 +498,7 @@ const promotions = new Map([
 	["Archer", 			["Sniper", "Bow Knight"]],
 	["Myrmidon", 		["Swordmaster", "Assassin"]],
 	["Thief", 			["Assassin", "Trickster"]],
-	["Pegasus Knight", 	["Dark Flier", "Falcon Knight"]],
+	["Pegasus Knight", 	["Falcon Knight", "Dark Flier"]],
 	["Wyvern Rider", 	["Wyvern Lord", "Griffon Rider"]],
 	["Troubador", 		["Valkyrie", "War Cleric"]],
 	["Cleric", 			["War Cleric", "Sage"]],
@@ -509,11 +509,11 @@ const promotions = new Map([
 
 const classPools = new Map([
 	["Robin (M)", 	["Tactician", "Grandmaster", "Cavalier", "Paladin", "Knight", "Great Knight", "General", "Barbarian", "Berserker", "Fighter", "Warrior", "Mercenary", "Hero", 
-					"Archer", "Bow Knight", "Sniper", "Myrmidon", "Swordmaster", "Thief", "Assassin", "Trickster", "Pegasus Knight", "Falcon Knight", "Dark Flier", "Wyvern Rider", 
+					"Archer", "Bow Knight", "Sniper", "Myrmidon", "Swordmaster", "Thief", "Assassin", "Trickster", "Pegasus Knight", "Dark Flier", "Falcon Knight", "Wyvern Rider", 
 					"Wyvern Lord", "Griffon Rider", "Troubador", "Valkyrie", "Priest", "War Monk", "Mage", "Sage", "Dark Mage", "Dark Knight", "Sorcerer", "Dread Fighter", "Groom",]],
 	["Robin (F)", 	["Tactician", "Grandmaster", "Cavalier", "Paladin", "Knight", "Great Knight", "General", "Barbarian", "Berserker", "Fighter", "Warrior", "Mercenary", "Hero", 
-					"Archer", "Bow Knight", "Sniper", "Myrmidon", "Swordmaster", "Thief", "Assassin", "Trickster", "Pegasus Knight", "Falcon Knight", "Dark Flier", "Wyvern Rider", 
-					"Wyvern Lord", "Griffon Rider", "Troubador", "Valkyrie", "Priest", "War Monk", "Mage", "Sage", "Dark Mage", "Dark Knight", "Sorcerer", "Dread Fighter", "Bride"]],
+					"Archer", "Bow Knight", "Sniper", "Myrmidon", "Swordmaster", "Thief", "Assassin", "Trickster", "Pegasus Knight", "Dark Flier", "Falcon Knight", "Wyvern Rider", 
+					"Wyvern Lord", "Griffon Rider", "Troubador", "Valkyrie", "Priest", "War Monk", "Mage", "Sage", "Dark Mage", "Sorcerer", "Dark Knight", "Dread Fighter", "Bride"]],
 	["Chrom", 		["Lord (M)", "Great Lord (M)", "Cavalier", "Paladin", "Great Knight", "Archer", "Bow Knight", "Sniper", "Dread Fighter", "Groom"]],
 	["Lissa", 		["Cleric", "War Cleric", "Sage", "Troubador", "Valkyrie", "Pegasus Knight", "Falcon Knight", "Dark Flier", "Dread Fighter", "Bride"]],
 	["Frederick", 	["Cavalier", "Great Knight", "Paladin", "Knight", "General", "Wyvern Rider", "Wyvern Lord", "Griffon Rider", "Dread Fighter", "Groom"]],
@@ -558,10 +558,10 @@ const classPools = new Map([
 	["Severa", 		["Mercenary", "Hero", "Bow Knight", "Pegasus Knight", "Falcon Knight", "Dark Flier", "Dark Mage", "Dark Knight", "Sorcerer"]],
 	["Gerome", 		["Wyvern Rider", "Wyvern Lord", "Griffon Rider", "Fighter", "Warrior", "Hero", "Priest", "War Monk", "Sage", "Troubador", "Valkyrie"]],
 	["Morgan", 		["Tactician", "Grandmaster", "Cavalier", "Paladin", "Knight", "Great Knight", "General", "Barbarian", "Berserker", "Fighter", "Warrior", "Mercenary", 
-					"Hero", "Archer", "Bow Knight", "Sniper", "Myrmidon", "Swordmaster", "Thief", "Assassin", "Trickster", "Pegasus Knight", "Falcon Knight", "Dark Flier", 
-					"Wyvern Rider", "Wyvern Lord", "Griffon Rider", "Troubador", "Valkyrie", "Cleric", "War Cleric", "Mage", "Sage", "Dark Mage", "Dark Knight", "Sorcerer"]],
+					"Hero", "Archer", "Bow Knight", "Sniper", "Myrmidon", "Swordmaster", "Thief", "Assassin", "Trickster", "Pegasus Knight", "Dark Flier", "Falcon Knight", 
+					"Wyvern Rider", "Wyvern Lord", "Griffon Rider", "Troubador", "Valkyrie", "Cleric", "War Cleric", "Mage", "Sage", "Dark Mage", "Sorcerer", "Dark Knight"]],
 	["Marc", 		["Tactician", "Grandmaster", "Cavalier", "Paladin", "Knight", "Great Knight", "General", "Barbarian", "Berserker", "Fighter", "Warrior", "Mercenary", 
-					"Hero", "Archer", "Bow Knight", "Sniper", "Myrmidon", "Swordmaster", "Thief", "Assassin", "Trickster", "Pegasus Knight", "Falcon Knight", "Dark Flier", 
+					"Hero", "Archer", "Bow Knight", "Sniper", "Myrmidon", "Swordmaster", "Thief", "Assassin", "Trickster", "Pegasus Knight", "Dark Flier", "Falcon Knight", 
 					"Wyvern Rider", "Wyvern Lord", "Griffon Rider", "Troubador", "Valkyrie", "Priest", "War Monk", "Mage", "Sage", "Dark Mage", "Dark Knight", "Sorcerer"]],
 	["Yarne", 		["Taguel (M)", "Thief", "Assassin", "Trickster", "Barbarian", "Berserker", "Warrior", "Wyvern Rider", "Wyvern Lord", "Griffon Rider"]],
 	["Laurent", 	["Mage", "Dark Knight", "Sage", "Dark Mage", "Sorcerer", "Barbarian", "Warrior", "Berserker", "Troubador", "War Monk", "Valkyrie"]],
@@ -744,7 +744,11 @@ function updateTransformations(){
 function generateClassList(fullClassList, currentClass, currentLevel){
 	reclassList = [currentClass];
 	if (baseClasses.includes(currentClass) && currentLevel >= 10){
-		reclassList = reclassList.concat(promotions.get(currentClass));
+		for (let i = 0; i < fullClassList.length; i++){
+			if (promotions.get(currentClass).includes(fullClassList[i])){
+				reclassList.push(fullClassList[i]);
+			}
+		}
 	}
 	if (currentLevel >= 10 || promotedClasses.includes(currentClass)){
 		for (let i = 0; i < fullClassList.length; i++){
@@ -753,7 +757,7 @@ function generateClassList(fullClassList, currentClass, currentLevel){
 			}
 		}
 	}
-	if ((promotedClasses.includes(currentClass) && currentLevel >= 10) || (promotedClasses.includes(currentClass) && currentLevel >= 10)){
+	if ((promotedClasses.includes(currentClass) && currentLevel >= 10) || (promotedClasses.includes(currentClass) && currentLevel >= 10) || (specialClasses.includes(currentClass) && currentLevel == 30)){
 		for (let i = 0; i < fullClassList.length; i++){
 			if (promotedClasses.includes(fullClassList[i]) && fullClassList[i] != currentClass){
 				reclassList.push(fullClassList[i]);
