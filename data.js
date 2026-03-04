@@ -2130,8 +2130,6 @@ var levelCap = 50;
 
 spouse.remove(0);
 spouse2.remove(0);
-spouse[0] = new Option("Robin (M)");
-spouse2[0] = new Option("Robin (M)");
 for (let i = 1; i < 37; i++){
 	if (["Lonqu", "Sayri", "Yenfay"].includes(characters[i])){
 		parent[i] = new Option(characters[i].slice(0, 3) + "'" + characters[i].slice(3));
