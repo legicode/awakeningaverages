@@ -752,7 +752,7 @@ function generateClassList(fullClassList, currentClass, currentLevel){
 	}
 	if (currentLevel >= 10 || promotedClasses.includes(currentClass)){
 		for (let i = 0; i < fullClassList.length; i++){
-			if (specialClasses.includes(fullClassList[i]) && ![currentClass, "Villager", "Dread Fighter", "Groom", "Bride"].includes(fullClassList[i])){
+			if (specialClasses.includes(fullClassList[i]) && ![currentClass, "Dancer", "Villager", "Dread Fighter", "Groom", "Bride"].includes(fullClassList[i])){
 				reclassList.push(fullClassList[i]);
 			}
 		}
@@ -780,7 +780,7 @@ function generateClassList(fullClassList, currentClass, currentLevel){
 	}
 	if ((currentLevel >= 10 || promotedClasses.includes(currentClass))){
 		for (let i = 0; i < fullClassList.length; i++){
-			if (specialClasses.includes(fullClassList[i]) && ["Villager", "Dread Fighter", "Groom", "Bride"].includes(fullClassList[i]) && fullClassList[i] != currentClass){
+			if (specialClasses.includes(fullClassList[i]) && ["Dancer", "Villager", "Dread Fighter", "Groom", "Bride"].includes(fullClassList[i]) && fullClassList[i] != currentClass){
 				reclassList.push(fullClassList[i]);
 			}
 		}
@@ -1176,7 +1176,7 @@ function generateChildBases(){
 			childCaps[i]++;
 		}
 	}
-	let childClasses = editClassList(childName, childParents[1]);
+	childClasses = editClassList(childName, childParents[1]);
 	if ((childName == "Morgan" && !["Chrom", "Vaike", "Donnel", "Olivia", "Basilio", "Walhart"].includes(childParents[1])) || (childName == "Marc" && !["Chrom", "Sumia", "Maribelle", "Cordelia", "Olivia", "Walhart", "Aversa"].includes(childParents[1]))){
 		if (childName == "Marc" && childParents[1] == "Lissa"){
 			childReclasses = [["Priest", charBases.get(childName)[1]]];
@@ -1242,7 +1242,7 @@ function generateSiblingBases(){
 			siblingCaps[i]++;
 		}
 	}
-	let siblingClasses = editClassList(siblingName, siblingParents[1]);
+	siblingClasses = editClassList(siblingName, siblingParents[1]);
 	if ((siblingName == "Morgan" && !["Chrom", "Vaike", "Donnel", "Olivia", "Basilio", "Walhart"].includes(siblingParents[1])) || (siblingName == "Marc" && !["Chrom", "Sumia", "Maribelle", "Cordelia", "Olivia", "Walhart", "Aversa"].includes(siblingParents[1]))){
 		if (siblingName == "Marc" && siblingParents[1] == "Lissa"){
 			siblingReclasses = [["Priest", charBases.get(siblingName)[1]]];
@@ -2054,7 +2054,10 @@ function resetChild(){
 			childClass.remove(0);
 			childClass2.remove(0);
 		}
-		classList = generateClassList(classPools.get(child.innerHTML), childReclasses[0][0], childReclasses[0][1]);
+		classList = generateClassList(childClasses, childReclasses[0][0], childReclasses[0][1]);
+		console.log(childClasses);
+		console.log(childReclasses[0][0]);
+		console.log(childReclasses[0][1]);
 		for (let i = 0; i < classList.length; i++){
 			if (classList[i].includes("(")){
 				childClass[i] = new Option(classList[i].slice(0, -4));
@@ -2077,7 +2080,7 @@ function resetSibling(){
 			siblingClass.remove(0);
 			siblingClass2.remove(0);
 		}
-		classList = generateClassList(classPools.get(sibling.innerHTML), siblingReclasses[0][0], siblingReclasses[0][1]);
+		classList = generateClassList(siblingClasses, siblingReclasses[0][0], siblingReclasses[0][1]);
 		for (let i = 0; i < classList.length; i++){
 			if (classList[i].includes("(")){
 				siblingClass[i] = new Option(classList[i].slice(0, -4));
