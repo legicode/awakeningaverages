@@ -743,6 +743,10 @@ function updateTransformations(){
 
 function generateClassList(fullClassList, currentClass, currentLevel){
 	reclassList = [currentClass];
+	lowPriority = ["Villager", "Dread Fighter", "Groom", "Bride"];
+	if (fullClassList[0] != "Dancer"){
+		lowPriority.push("Dancer");
+	}
 	if (baseClasses.includes(currentClass) && currentLevel >= 10){
 		for (let i = 0; i < fullClassList.length; i++){
 			if (promotions.get(currentClass).includes(fullClassList[i])){
@@ -752,7 +756,7 @@ function generateClassList(fullClassList, currentClass, currentLevel){
 	}
 	if (currentLevel >= 10 || promotedClasses.includes(currentClass)){
 		for (let i = 0; i < fullClassList.length; i++){
-			if (specialClasses.includes(fullClassList[i]) && ![currentClass, "Dancer", "Villager", "Dread Fighter", "Groom", "Bride"].includes(fullClassList[i])){
+			if (specialClasses.includes(fullClassList[i]) && !lowPriority.includes(fullClassList[i]) && fullClassList[i] != currentClass){
 				reclassList.push(fullClassList[i]);
 			}
 		}
@@ -780,7 +784,7 @@ function generateClassList(fullClassList, currentClass, currentLevel){
 	}
 	if ((currentLevel >= 10 || promotedClasses.includes(currentClass))){
 		for (let i = 0; i < fullClassList.length; i++){
-			if (specialClasses.includes(fullClassList[i]) && ["Dancer", "Villager", "Dread Fighter", "Groom", "Bride"].includes(fullClassList[i]) && fullClassList[i] != currentClass){
+			if (specialClasses.includes(fullClassList[i]) && lowPriority.includes(fullClassList[i]) && fullClassList[i] != currentClass){
 				reclassList.push(fullClassList[i]);
 			}
 		}
@@ -1943,7 +1947,7 @@ function levelChild(){
 		childClass.remove(0);
 		childClass2.remove(0);
 	}
-	classList = generateClassList(classPools.get(child.innerHTML), childReclasses[childReclasses.length-1][0], childReclasses[childReclasses.length-1][1]);
+	classList = generateClassList(childClasses, childReclasses[childReclasses.length-1][0], childReclasses[childReclasses.length-1][1]);
 	for (let i = 0; i < classList.length; i++){
 		if (classList[i].includes("(")){
 			childClass[i] = new Option(classList[i].slice(0, -4));
@@ -1980,7 +1984,7 @@ function levelSibling(){
 		siblingClass.remove(0);
 		siblingClass2.remove(0);
 	}
-	classList = generateClassList(classPools.get(sibling.innerHTML), siblingReclasses[siblingReclasses.length-1][0], siblingReclasses[siblingReclasses.length-1][1]);
+	classList = generateClassList(siblingClasses, siblingReclasses[siblingReclasses.length-1][0], siblingReclasses[siblingReclasses.length-1][1]);
 	for (let i = 0; i < classList.length; i++){
 		if (classList[i].includes("(")){
 			siblingClass[i] = new Option(classList[i].slice(0, -4));
@@ -2055,9 +2059,6 @@ function resetChild(){
 			childClass2.remove(0);
 		}
 		classList = generateClassList(childClasses, childReclasses[0][0], childReclasses[0][1]);
-		console.log(childClasses);
-		console.log(childReclasses[0][0]);
-		console.log(childReclasses[0][1]);
 		for (let i = 0; i < classList.length; i++){
 			if (classList[i].includes("(")){
 				childClass[i] = new Option(classList[i].slice(0, -4));
