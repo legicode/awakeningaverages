@@ -727,11 +727,12 @@ function updateDifficulty(){
 }
 
 function updateTransformations(){
-	if (classPools.get(parent.value)[0] == "Manakete" || classPools.get(parent.value)[0] == "Taguel (F)"){
+	if (classPools.get(parent.value.replaceAll("'", ""))[0] == "Manakete" || classPools.get(parent.value.replaceAll("'", ""))[0] == "Taguel (F)"){
 		generateParentTable();
 	}
-	if (classPools.get(spouse.value)[0] == "Manakete" || classPools.get(spouse.value)[0] == "Taguel (F)"){
+	if (classPools.get(spouse.value.replaceAll("'", ""))[0] == "Manakete" || classPools.get(spouse.value.replaceAll("'", ""))[0] == "Taguel (F)"){
 		generateSpouseTable();
+		console.log("test");
 	}
 	if ((childClasses.includes("Manakete") || childClasses.includes("Taguel (M)") || childClasses.includes("Taguel (F)")) && childStatGrowth.length > 0){
 		generateChildTable();
@@ -926,11 +927,11 @@ function editClassList(kid, parent){
 function updateParentLevels(){
 	let currentClass = parentReclasses[parentReclasses.length-1][0];
 	if (["Lord", "Great Lord", "Taguel"].includes(currentClass)){
-		currentClass += " (" + genders.get(parent.value) + ")";
+		currentClass += " (" + genders.get(parent.value.replaceAll("'", "")) + ")";
 	}
 	let selectedClass = parentClass.value;
 	if (["Lord", "Great Lord", "Taguel"].includes(selectedClass)){
-		selectedClass += " (" + genders.get(parent.value) + ")";
+		selectedClass += " (" + genders.get(parent.value.replaceAll("'", "")) + ")";
 	}
 	let maxLevel = 20;
 	if (specialClasses.includes(selectedClass)){
@@ -969,11 +970,11 @@ function updateParentLevels(){
 function updateSpouseLevels(){
 	let currentClass = spouseReclasses[spouseReclasses.length-1][0];
 	if (["Lord", "Great Lord", "Taguel"].includes(currentClass)){
-		currentClass += " (" + genders.get(spouse.value) + ")";
+		currentClass += " (" + genders.get(spouse.value.replaceAll("'", "")) + ")";
 	}
 	let selectedClass = spouseClass.value;
 	if (["Lord", "Great Lord", "Taguel"].includes(selectedClass)){
-		selectedClass += " (" + genders.get(spouse.value) + ")";
+		selectedClass += " (" + genders.get(spouse.value.replaceAll("'", "")) + ")";
 	}
 	let maxLevel = 20;
 	if (specialClasses.includes(selectedClass)){
@@ -1155,21 +1156,23 @@ function updateSpouse(){
 
 function generateChildBases(){
 	let childName;
-	if ((parent.value == spouse.value) || (parent.value.includes("Robin") && spouse.value.includes("Robin")) || (["Chrom", "Lissa", "Emmeryn"].includes(parent.value) && ["Chrom", "Lissa", "Emmeryn"].includes(spouse.value))){
+	let parentName = parent.value.replaceAll("'", "");
+	let spouseName = spouse.value.replaceAll("'", "");
+	if ((parentName == spouseName) || (parentName.includes("Robin") && spouseName.includes("Robin")) || (["Chrom", "Lissa", "Emmeryn"].includes(parentName) && ["Chrom", "Lissa", "Emmeryn"].includes(spouseName))){
 		return;
 	}
-	if (![...defaultParents.keys()].includes(parent.value.replaceAll("'", "")) && ![...defaultParents.keys()].includes(spouse.value.replaceAll("'", ""))){
+	if (![...defaultParents.keys()].includes(parentName) && ![...defaultParents.keys()].includes(spouseName)){
 		return;
 	}
-	else if ([...defaultParents.keys()].includes(parent.value.replaceAll("'", ""))){
-		childName = defaultParents.get(parent.value);
-		childParents[0] = parent.value.replaceAll("'", "");
-		childParents[1] = spouse.value.replaceAll("'", "");
+	else if ([...defaultParents.keys()].includes(parentName)){
+		childName = defaultParents.get(parentName);
+		childParents[0] = parentName;
+		childParents[1] = spouseName;
 	}
 	else {
-		childName = defaultParents.get(spouse.value);
-		childParents[0] = spouse.value.replaceAll("'", "");
-		childParents[1] = parent.value.replaceAll("'", "");
+		childName = defaultParents.get(spouseName);
+		childParents[0] = spouseName;
+		childParents[1] = parentName;
 	}
 	child.innerHTML = childName;
 	child2.innerHTML = childName;
@@ -1221,21 +1224,23 @@ function generateChildBases(){
 
 function generateSiblingBases(){
 	let siblingName;
-	if ((parent.value == spouse.value) || (parent.value.includes("Robin") && spouse.value.includes("Robin")) || (["Chrom", "Lissa", "Emmeryn"].includes(parent.value) && ["Chrom", "Lissa", "Emmeryn"].includes(spouse.value))){
+	let parentName = parent.value.replaceAll("'", "");
+	let spouseName = spouse.value.replaceAll("'", "");
+	if ((parentName == spouseName) || (parentName.includes("Robin") && spouseName.includes("Robin")) || (["Chrom", "Lissa", "Emmeryn"].includes(parentName) && ["Chrom", "Lissa", "Emmeryn"].includes(spouseName))){
 		return;
 	}
-	if (![...defaultParents.keys()].includes(parent.value.replaceAll("'", "")) && ![...defaultParents.keys()].includes(spouse.value.replaceAll("'", ""))){
+	if (![...defaultParents.keys()].includes(parentName) && ![...defaultParents.keys()].includes(spouseName.replaceAll("'", ""))){
 		return;
 	}
-	else if ([...defaultParents.keys()].includes(spouse.value.replaceAll("'", ""))){
-		siblingName = defaultParents.get(spouse.value);
-		siblingParents[0] = spouse.value.replaceAll("'", "");
-		siblingParents[1] = parent.value.replaceAll("'", "");
+	else if ([...defaultParents.keys()].includes(spouseName.replaceAll("'", ""))){
+		siblingName = defaultParents.get(spouseName);
+		siblingParents[0] = spouseName.replaceAll("'", "");
+		siblingParents[1] = parentName;
 	}
 	else {
-		siblingName = defaultParents.get(parent.value);
-		siblingParents[0] = parent.value.replaceAll("'", "");
-		siblingParents[1] = spouse.value.replaceAll("'", "");
+		siblingName = defaultParents.get(parentName);
+		siblingParents[0] = parentName;
+		siblingParents[1] = spouseName.replaceAll("'", "");
 	}
 	sibling.innerHTML = siblingName;
 	sibling2.innerHTML = siblingName;
@@ -1286,8 +1291,8 @@ function generateSiblingBases(){
 }
 
 function generateParentTable(){
-	aptitudeStats = parent.value == "Donnel" && aptitude.selectedIndex <= 1;
 	let parentName = parent.value.replaceAll("'", "");
+	aptitudeStats = parentName == "Donnel" && aptitude.selectedIndex <= 1;
 	let parentBases = parentName;
 	if (bonusStats.includes(parentBases)){
 		parentBases += " (" + difficulty.value[0].toUpperCase() + ")";
@@ -1431,8 +1436,8 @@ function generateParentTable(){
 }
 
 function generateSpouseTable(){
-	aptitudeStats = spouse.value == "Donnel" && aptitude.selectedIndex <= 1;
 	let spouseName = spouse.value.replaceAll("'", "");
+	aptitudeStats = spouseName == "Donnel" && aptitude.selectedIndex <= 1;
 	let spouseBases = spouseName;
 	if (bonusStats.includes(spouseBases)){
 		spouseBases += " (" + difficulty.value[0].toUpperCase() + ")";
@@ -1576,7 +1581,7 @@ function generateSpouseTable(){
 }
 
 function generateChildTable(){
-	aptitudeStats = child.value == "Donnel" && aptitude.selectedIndex % 2 == 0;
+	aptitudeStats = childParents[1] == "Donnel" && aptitude.selectedIndex % 2 == 0;
 	for (let i = 0; i < 9; i++){
 		childCurrentStats[i] = childBaseStats[i];
 		childStatGrowth[i] = childBaseStats[i] - classBases.get(charBases.get(child.innerHTML)[0])[i];
@@ -1716,7 +1721,7 @@ function generateChildTable(){
 }
 
 function generateSiblingTable(){
-	aptitudeStats = sibling.value == "Donnel" && aptitude.selectedIndex % 2 == 0;
+	aptitudeStats = siblingParents[1] == "Donnel" && aptitude.selectedIndex % 2 == 0;
 	for (let i = 0; i < 9; i++){
 		siblingCurrentStats[i] = siblingBaseStats[i];
 		siblingStatGrowth[i] = siblingBaseStats[i] - classBases.get(charBases.get(sibling.innerHTML)[0])[i];
