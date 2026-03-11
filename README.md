@@ -1,1 +1,1 @@
-Character stats and gameplay calculator for Fire Emblem Awakening with support for common modded options.
+Average stats and reclassing calculator for Fire Emblem Awakening, with full support for generation 2 and common modded options.
