@@ -1352,10 +1352,10 @@ function generateParentTable(){
 		let mov = row.insertCell(10).innerHTML = '<span id="parentRow'+parentStats.rows.length+'MOV"></span>';
 		let internal = row.insertCell(11).innerHTML = '<span id="parentRow'+parentStats.rows.length+'internal"></span>';
 		parentClassName = parentReclasses[i][0];
-		if (parentClassName.includes("(")){
-			parentClassName = parentClassName.slice(0, -4);
-		}
 		this["parentRow" + parentStats.rows.length + "class"].innerHTML = parentClassName;
+		if (parentClassName.includes("(")){
+			this["parentRow" + parentStats.rows.length + "class"].innerHTML = parentClassName.slice(0, -4);
+		}
 		let startingLevel = 1;
 		if (i == 0){
 			startingLevel = charBases.get(parentBases)[1] ;
@@ -1397,6 +1397,9 @@ function generateParentTable(){
 			let mov = row.insertCell(10).innerHTML = '<span id="parentRow'+parentStats.rows.length+'MOV"></span>';
 			let internal = row.insertCell(11).innerHTML = '<span id="parentRow'+parentStats.rows.length+'internal"></span>';
 			this["parentRow" + parentStats.rows.length + "class"].innerHTML = parentClassName;
+			if (parentClassName.includes("(")){
+				this["parentRow" + parentStats.rows.length + "class"].innerHTML = parentClassName.slice(0, -4);
+			}
 			this["parentRow" + parentStats.rows.length + "level"].innerHTML = "<b><u>"+j+"</u></b>";
 			for (let k = 0; k < 9; k++){
 				let statIncrease = 0;
@@ -1497,10 +1500,10 @@ function generateSpouseTable(){
 		let mov = row.insertCell(10).innerHTML = '<span id="spouseRow'+spouseStats.rows.length+'MOV"></span>';
 		let internal = row.insertCell(11).innerHTML = '<span id="spouseRow'+spouseStats.rows.length+'internal"></span>';
 		spouseClassName = spouseReclasses[i][0];
-		if (spouseClassName.includes("(")){
-			spouseClassName = spouseClassName.slice(0, -4);
-		}
 		this["spouseRow" + spouseStats.rows.length + "class"].innerHTML = spouseClassName;
+		if (spouseClassName.includes("(")){
+			this["spouseRow" + spouseStats.rows.length + "class"].innerHTML = spouseClassName.slice(0, -4);
+		}
 		let startingLevel = 1;
 		if (i == 0){
 			startingLevel = charBases.get(spouseBases)[1] ;
@@ -1542,6 +1545,9 @@ function generateSpouseTable(){
 			let mov = row.insertCell(10).innerHTML = '<span id="spouseRow'+spouseStats.rows.length+'MOV"></span>';
 			let internal = row.insertCell(11).innerHTML = '<span id="spouseRow'+spouseStats.rows.length+'internal"></span>';
 			this["spouseRow" + spouseStats.rows.length + "class"].innerHTML = spouseClassName;
+			if (spouseClassName.includes("(")){
+				this["spouseRow" + spouseStats.rows.length + "class"].innerHTML = spouseClassName.slice(0, -4);
+			}
 			this["spouseRow" + spouseStats.rows.length + "level"].innerHTML = "<b><u>"+j+"</u></b>";
 			for (let k = 0; k < 9; k++){
 				let statIncrease = 0;
@@ -1637,10 +1643,10 @@ function generateChildTable(){
 		let mov = row.insertCell(10).innerHTML = '<span id="childRow'+childStats.rows.length+'MOV"></span>';
 		let internal = row.insertCell(11).innerHTML = '<span id="childRow'+childStats.rows.length+'internal"></span>';
 		childClassName = childReclasses[i][0];
-		if (childClassName.includes("(")){
-			childClassName = childClassName.slice(0, -4);
-		}
 		this["childRow" + childStats.rows.length + "class"].innerHTML = childClassName;
+		if (childClassName.includes("(")){
+			this["childRow" + childStats.rows.length + "class"].innerHTML = childClassName.slice(0, -4);
+		}
 		let startingLevel = 1;
 		if (i == 0){
 			startingLevel = 10;
@@ -1682,6 +1688,9 @@ function generateChildTable(){
 			let mov = row.insertCell(10).innerHTML = '<span id="childRow'+childStats.rows.length+'MOV"></span>';
 			let internal = row.insertCell(11).innerHTML = '<span id="childRow'+childStats.rows.length+'internal"></span>';
 			this["childRow" + childStats.rows.length + "class"].innerHTML = childClassName;
+			if (childClassName.includes("(")){
+				this["childRow" + childStats.rows.length + "class"].innerHTML = childClassName.slice(0, -4);
+			}
 			this["childRow" + childStats.rows.length + "level"].innerHTML = "<b><u>"+j+"</u></b>";
 			for (let k = 0; k < 9; k++){
 				let statIncrease = 0;
@@ -1777,10 +1786,10 @@ function generateSiblingTable(){
 		let mov = row.insertCell(10).innerHTML = '<span id="siblingRow'+siblingStats.rows.length+'MOV"></span>';
 		let internal = row.insertCell(11).innerHTML = '<span id="siblingRow'+siblingStats.rows.length+'internal"></span>';
 		siblingClassName = siblingReclasses[i][0];
-		if (siblingClassName.includes("(")){
-			siblingClassName = siblingClassName.slice(0, -4);
-		}
 		this["siblingRow" + siblingStats.rows.length + "class"].innerHTML = siblingClassName;
+		if (siblingClassName.includes("(")){
+			this["siblingRow" + siblingStats.rows.length + "class"].innerHTML = siblingClassName.slice(0, -4);
+		}
 		let startingLevel = 1;
 		if (i == 0){
 			startingLevel = 10;
@@ -1822,6 +1831,9 @@ function generateSiblingTable(){
 			let mov = row.insertCell(10).innerHTML = '<span id="siblingRow'+siblingStats.rows.length+'MOV"></span>';
 			let internal = row.insertCell(11).innerHTML = '<span id="siblingRow'+siblingStats.rows.length+'internal"></span>';
 			this["siblingRow" + siblingStats.rows.length + "class"].innerHTML = siblingClassName;
+			if (siblingClassName.includes("(")){
+				this["siblingRow" + siblingStats.rows.length + "class"].innerHTML = siblingClassName.slice(0, -4);
+			}
 			this["siblingRow" + siblingStats.rows.length + "level"].innerHTML = "<b><u>"+j+"</u></b>";
 			for (let k = 0; k < 9; k++){
 				let statIncrease = 0;
@@ -2127,7 +2139,6 @@ flaw2.selectedIndex = 5;
 aptitude2.selectedIndex = 0;
 transformations2.selectedIndex = 1;
 var capFormat = "u";
-var reclassFormat = "b";
 
 var parent = document.getElementById("parent");
 var parentClass = document.getElementById("parentClass");
