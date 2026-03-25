@@ -969,6 +969,7 @@ function updateParentLevels(){
 	if (parentLevel.selectedIndex < 0){
 		parentLevel.selectedIndex = parentLevel.length - 1;
 	}
+	parentLevel2.selectedIndex = parentLevel.selectedIndex;
 }
 
 function updateSpouseLevels(){
@@ -1016,6 +1017,7 @@ function updateSpouseLevels(){
 	if (spouseLevel.selectedIndex < 0){
 		spouseLevel.selectedIndex = spouseLevel.length - 1;
 	}
+	spouseLevel2.selectedIndex = spouseLevel.selectedIndex;
 }
 
 function updateChildLevels(){
@@ -1063,6 +1065,7 @@ function updateChildLevels(){
 	if (childLevel.selectedIndex < 0){
 		childLevel.selectedIndex = childLevel.length - 1;
 	}
+	childLevel2.selectedIndex = childLevel.selectedIndex;
 }
 
 function updateSiblingLevels(){
@@ -1110,6 +1113,7 @@ function updateSiblingLevels(){
 	if (siblingLevel.selectedIndex < 0){
 		siblingLevel.selectedIndex = siblingLevel.length - 1;
 	}
+	siblingLevel2.selectedIndex = siblingLevel.selectedIndex;
 }
 
 function updateParent(){
