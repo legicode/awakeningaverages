@@ -965,6 +965,10 @@ function updateParentLevels(){
 			parentLevel2[parentLevel2.length] = new Option(maxLevel - parentLevel2.length);
 		}
 	}
+	parentLevel.value = 10;
+	if (parentLevel.selectedIndex < 0){
+		parentLevel.selectedIndex = parentLevel.length - 1;
+	}
 }
 
 function updateSpouseLevels(){
@@ -1007,6 +1011,10 @@ function updateSpouseLevels(){
 			spouseLevel[spouseLevel.length] = new Option(maxLevel - spouseLevel.length);
 			spouseLevel2[spouseLevel2.length] = new Option(maxLevel - spouseLevel2.length);
 		}
+	}
+	spouseLevel.value = 10;
+	if (spouseLevel.selectedIndex < 0){
+		spouseLevel.selectedIndex = spouseLevel.length - 1;
 	}
 }
 
@@ -1051,6 +1059,10 @@ function updateChildLevels(){
 			childLevel2[childLevel2.length] = new Option(maxLevel - childLevel2.length);
 		}
 	}
+	childLevel.value = 10;
+	if (childLevel.selectedIndex < 0){
+		childLevel.selectedIndex = childLevel.length - 1;
+	}
 }
 
 function updateSiblingLevels(){
@@ -1093,6 +1105,10 @@ function updateSiblingLevels(){
 			siblingLevel[siblingLevel.length] = new Option(maxLevel - siblingLevel.length);
 			siblingLevel2[siblingLevel2.length] = new Option(maxLevel - siblingLevel2.length);
 		}
+	}
+	siblingLevel.value = 10;
+	if (siblingLevel.selectedIndex < 0){
+		siblingLevel.selectedIndex = siblingLevel.length - 1;
 	}
 }
 
