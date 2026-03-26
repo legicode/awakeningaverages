@@ -1425,10 +1425,10 @@ function generateParentTable(){
 				let statIncrease = 0;
 				if (parentCurrentStats[k] < classCaps.get(parentReclasses[i][0])[k] + charCaps.get(parentName)[k]){
 					if (growthsMode.selectedIndex == 0){
-						statIncrease = (charGrowths.get(parentName)[k] + classGrowths.get(parentReclasses[i][0])[k] + 20 * aptitudeStats) / 100;
+						statIncrease = (charGrowths.get(parentName)[k] + classGrowths.get(parentReclasses[i][0])[k] + 20 * (aptitudeStats && k != 8)) / 100;
 					}
 					else {
-						statIncrease = Math.round((j-1) * (charGrowths.get(parentName)[k] + classGrowths.get(parentReclasses[i][0])[k]) / 100 + 20 * aptitudeStats) - Math.round((j-2) * (charGrowths.get(parentName)[k] + classGrowths.get(parentReclasses[i][0])[k] + 20 * aptitudeStats) / 100);
+						statIncrease = Math.round((j-1) * (charGrowths.get(parentName)[k] + classGrowths.get(parentReclasses[i][0])[k]) / 100 + 20 * (aptitudeStats && k != 8)) - Math.round((j-2) * (charGrowths.get(parentName)[k] + classGrowths.get(parentReclasses[i][0])[k] + 20 * (aptitudeStats && k != 8)) / 100);
 					}
 					if (parentCurrentStats[k] + statIncrease > classCaps.get(parentReclasses[i][0])[k] + charCaps.get(parentName)[k]){
 						statIncrease = classCaps.get(parentReclasses[i][0])[k] + charCaps.get(parentName)[k] - parentCurrentStats[k];
@@ -1573,10 +1573,10 @@ function generateSpouseTable(){
 				let statIncrease = 0;
 				if (spouseCurrentStats[k] < classCaps.get(spouseReclasses[i][0])[k] + charCaps.get(spouseName)[k]){
 					if (growthsMode.selectedIndex == 0){
-						statIncrease = (charGrowths.get(spouseName)[k] + classGrowths.get(spouseReclasses[i][0])[k] + 20 * aptitudeStats) / 100;
+						statIncrease = (charGrowths.get(spouseName)[k] + classGrowths.get(spouseReclasses[i][0])[k] + 20 * (aptitudeStats && k != 8)) / 100;
 					}
 					else {
-						statIncrease = Math.round((j-1) * (charGrowths.get(spouseName)[k] + classGrowths.get(spouseReclasses[i][0])[k] + 20 * aptitudeStats) / 100) - Math.round((j-2) * (charGrowths.get(spouseName)[k] + classGrowths.get(spouseReclasses[i][0])[k] + 20 * aptitudeStats) / 100);
+						statIncrease = Math.round((j-1) * (charGrowths.get(spouseName)[k] + classGrowths.get(spouseReclasses[i][0])[k] + 20 * (aptitudeStats && k != 8)) / 100) - Math.round((j-2) * (charGrowths.get(spouseName)[k] + classGrowths.get(spouseReclasses[i][0])[k] + 20 * (aptitudeStats && k != 8)) / 100);
 					}
 					if (spouseCurrentStats[k] + statIncrease > classCaps.get(spouseReclasses[i][0])[k] + charCaps.get(spouseName)[k]){
 						statIncrease = classCaps.get(spouseReclasses[i][0])[k] + charCaps.get(spouseName)[k] - spouseCurrentStats[k];
@@ -1716,10 +1716,10 @@ function generateChildTable(){
 				let statIncrease = 0;
 				if (childCurrentStats[k] < classCaps.get(childReclasses[i][0])[k] + childCaps[k]){
 					if (growthsMode.selectedIndex == 0){
-						statIncrease = (childGrowths[k] + classGrowths.get(childReclasses[i][0])[k] + 20 * aptitudeStats) / 100;
+						statIncrease = (childGrowths[k] + classGrowths.get(childReclasses[i][0])[k] + 20 * (aptitudeStats && k != 8)) / 100;
 					}
 					else {
-						statIncrease = Math.round((j-1) * (childGrowths[k] + classGrowths.get(childReclasses[i][0])[k] + 20 * aptitudeStats) / 100) - Math.round((j-2) * (childGrowths[k] + classGrowths.get(childReclasses[i][0])[k] + 20 * aptitudeStats) / 100);
+						statIncrease = Math.round((j-1) * (childGrowths[k] + classGrowths.get(childReclasses[i][0])[k] + 20 * (aptitudeStats && k != 8)) / 100) - Math.round((j-2) * (childGrowths[k] + classGrowths.get(childReclasses[i][0])[k] + 20 * (aptitudeStats && k != 8)) / 100);
 					}
 					if (childCurrentStats[k] + statIncrease > classCaps.get(childReclasses[i][0])[k] + childCaps[k]){
 						statIncrease = classCaps.get(childReclasses[i][0])[k] + childCaps[k] - childCurrentStats[k];
@@ -1859,10 +1859,10 @@ function generateSiblingTable(){
 				let statIncrease = 0;
 				if (siblingCurrentStats[k] < classCaps.get(siblingReclasses[i][0])[k] + siblingCaps[k]){
 					if (growthsMode.selectedIndex == 0){
-						statIncrease = (siblingGrowths[k] + classGrowths.get(siblingReclasses[i][0])[k] + 20 * aptitudeStats) / 100;
+						statIncrease = (siblingGrowths[k] + classGrowths.get(siblingReclasses[i][0])[k] + 20 * (aptitudeStats && k != 8)) / 100;
 					}
 					else {
-						statIncrease = Math.round((j-1) * (siblingGrowths[k] + classGrowths.get(siblingReclasses[i][0])[k] + 20 * aptitudeStats) / 100) - Math.round((j-2) * (siblingGrowths[k] + classGrowths.get(siblingReclasses[i][0])[k] + 20 * aptitudeStats) / 100);
+						statIncrease = Math.round((j-1) * (siblingGrowths[k] + classGrowths.get(siblingReclasses[i][0])[k] + 20 * (aptitudeStats && k != 8)) / 100) - Math.round((j-2) * (siblingGrowths[k] + classGrowths.get(siblingReclasses[i][0])[k] + 20 * (aptitudeStats && k != 8)) / 100);
 					}
 					if (siblingCurrentStats[k] + statIncrease > classCaps.get(siblingReclasses[i][0])[k] + siblingCaps[k]){
 						statIncrease = classCaps.get(siblingReclasses[i][0])[k] + siblingCaps[k] - siblingCurrentStats[k];
