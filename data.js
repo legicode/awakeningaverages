@@ -185,7 +185,7 @@ var charBases = new Map([
 	["Lissa", 		["Cleric", 			 1, 17,  1,  5,  4,  4,  8,  3,  4, 5]],
 	["Frederick", 	["Great Knight", 	 1, 28, 13,  2, 12, 10,  6, 14,  3, 7]],
 	["Sully", 		["Cavalier", 		 2, 20,  7,  1,  8 , 8,  6,  7,  2, 7]],
-	["Virion", 		["Archer", 			 2, 19,  6,  9,  9,  5,  7,  6,  1, 5]],
+	["Virion", 		["Archer", 			 2, 19,  6,  0,  9,  5,  7,  6,  1, 5]],
 	["Stahl", 		["Cavalier", 		 2, 22,  8,  0,  7,  6,  5,  8,  1, 7]],
 	["Vaike", 		["Fighter", 		 3, 24,  9,  0,  8,  6,  4,  5,  0, 5]],
 	["Miriel", 		["Mage", 			 1, 18,  0,  6,  5,  7,  6,  3,  4, 5]],
