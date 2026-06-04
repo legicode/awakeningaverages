@@ -5,8 +5,6 @@ const characters = ["Robin (M)", "Robin (F)", "Chrom", "Lissa", "Frederick", "Su
 	"Maribelle", "Panne", "Gaius", "Cordelia", "Gregor", "Nowi", "Libra", "Tharja", "Anna", "Olivia", "Cherche", "Henry", "Sayri", "Tiki", "Basilio", "Flavia", "Gangrel", "Walhart", 
 	"Emmeryn", "Yenfay", "Aversa", "Priam", "Lucina", "Owain", "Inigo", "Brady", "Kjelle", "Cynthia", "Severa", "Gerome", "Morgan", "Marc", "Yarne", "Laurent", "Noire", "Nah"];
 
-const bonusStats = ["Gregor", "Nowi", "Libra", "Tharja", "Anna", "Cherche", "Henry", "Sayri", "Tiki", "Basilio", "Flavia", "Gangrel", "Walhart", "Emmeryn", "Yenfay", "Aversa", "Priam"];
-
 const defaultParents = new Map([
 	["Robin (M)", 	"Morgan"],
 	["Robin (F)", 	"Marc"],
@@ -185,7 +183,7 @@ var charBases = new Map([
 	["Lissa", 		["Cleric", 			 1, 17,  1,  5,  4,  4,  8,  3,  4, 5]],
 	["Frederick", 	["Great Knight", 	 1, 28, 13,  2, 12, 10,  6, 14,  3, 7]],
 	["Sully", 		["Cavalier", 		 2, 20,  7,  1,  8 , 8,  6,  7,  2, 7]],
-	["Virion", 		["Archer", 			 2, 19,  6,  0,  9,  5,  7,  6,  1, 5]],
+	["Virion", 		["Archer", 			 2, 19,  6,  9,  9,  5,  7,  6,  1, 5]],
 	["Stahl", 		["Cavalier", 		 2, 22,  8,  0,  7,  6,  5,  8,  1, 7]],
 	["Vaike", 		["Fighter", 		 3, 24,  9,  0,  8,  6,  4,  5,  0, 5]],
 	["Miriel", 		["Mage", 			 1, 18,  0,  6,  5,  7,  6,  3,  4, 5]],
@@ -198,58 +196,24 @@ var charBases = new Map([
 	["Panne", 		["Taguel (F)", 		 6, 28,  8,  1,  9, 10,  8,  7,  3, 6]],
 	["Gaius", 		["Thief", 			 5, 22,  7,  0, 13, 15,  6,  5,  2, 5]],
 	["Cordelia", 	["Pegasus Knight", 	 7, 25,  9,  3, 13, 12,  9,  8,  8, 7]],
-	["Gregor (N)", 	["Mercenary", 		10, 30, 12,  0, 13, 11,  8, 10,  2, 5]],
-	["Gregor (H)", 	["Mercenary", 		10, 30, 12,  0, 13, 11,  8, 10,  2, 5]],
-	["Gregor (L)", 	["Mercenary", 		10, 31, 13,  0, 14, 12,  8, 11,  2, 5]],
-	["Nowi (N)", 	["Manakete", 		 3, 18,  4,  0,  2,  3,  8,  2,  2, 6]],
-	["Nowi (H)", 	["Manakete", 		 3, 18,  4,  0,  2,  3,  8,  2,  2, 6]],
-	["Nowi (L)", 	["Manakete", 		 3, 19,  5,  0,  3,  4,  9,  3,  3, 6]],
-	["Libra (N)", 	["War Monk", 		 1, 38, 14, 15, 13, 13, 10, 11, 16, 6]],
-	["Libra (H)", 	["War Monk", 		 1, 39, 14, 16, 13, 14, 10, 11, 16, 6]],
-	["Libra (L)", 	["War Monk", 		 1, 40, 15, 16, 13, 14, 11, 12, 17, 6]],
-	["Tharja (N)", 	["Dark Mage", 		10, 25,  4, 11,  5, 12,  3, 10,  7, 5]],
-	["Tharja (H)", 	["Dark Mage", 		10, 25,  4, 11,  5, 12,  3, 10,  7, 5]],
-	["Tharja (L)", 	["Dark Mage", 		10, 26,  4, 12,  5, 13,  3, 10,  7, 5]],
-	["Anna (N)", 	["Trickster", 		 1, 35, 12, 17, 22, 21, 25,  8, 10, 6]],
-	["Anna (H)", 	["Trickster", 		 1, 36, 12, 17, 23, 22, 26,  8, 10, 6]],
-	["Anna (L)", 	["Trickster", 		 1, 37, 13, 18, 23, 22, 27,  9, 11, 6]],
+	["Gregor", 		["Mercenary", 		10, 30, 12,  0, 13, 11,  8, 10,  2, 5]],
+	["Nowi", 		["Manakete", 		 3, 18,  4,  0,  2,  3,  8,  2,  2, 6]],
+	["Libra", 		["War Monk", 		 1, 38, 14, 15, 13, 13, 10, 11, 16, 6]],
+	["Tharja", 		["Dark Mage", 		10, 25,  4, 11,  5, 12,  3, 10,  7, 5]],
+	["Anna", 		["Trickster", 		 1, 35, 12, 17, 22, 21, 25,  8, 10, 6]],
 	["Olivia", 		["Dancer", 			 1, 18,  3,  1,  8,  9,  5,  3,  2, 5]],
-	["Cherche (N)", ["Wyvern Rider", 	12, 30, 14,  1, 12, 11,  8, 15,  2, 7]],
-	["Cherche (H)", ["Wyvern Rider", 	12, 31, 15,  1, 13, 12,  9, 16,  2, 7]],
-	["Cherche (L)", ["Wyvern Rider", 	12, 33, 16,  2, 14, 13, 10, 17,  2, 7]],
-	["Henry (N)", 	["Dark Mage", 		12, 28,  6, 13, 14,  8, 10, 12,  5, 5]],
-	["Henry (H)", 	["Dark Mage", 		12, 29,  6, 14, 15,  9, 10, 13,  5, 5]],
-	["Henry (L)", 	["Dark Mage", 		12, 31,  7, 15, 16, 10, 11, 14,  6, 5]],
-	["Sayri (N)", 	["Swordmaster", 	 1, 39, 17,  7, 23, 26, 20, 12, 10, 6]],
-	["Sayri (H)", 	["Swordmaster", 	 1, 41, 18,  7, 24, 27, 21, 13, 11, 6]],
-	["Sayri (L)", 	["Swordmaster", 	 1, 43, 19,  8, 26, 29, 22, 14, 12, 6]],
-	["Tiki (N)", 	["Manakete", 		20, 39, 18, 10, 14, 16, 18, 15, 12, 6]],
-	["Tiki (H)", 	["Manakete", 		20, 44, 20, 12, 17, 19, 21, 17, 14, 6]],
-	["Tiki (L)", 	["Manakete", 		20, 49, 23, 14, 20, 22, 24, 20, 17, 6]],
-	["Basilio (N)", ["Warrior", 		10, 56, 30,  3, 25, 21, 18, 20,  8, 6]],
-	["Basilio (H)", ["Warrior", 		10, 62, 34,  4, 28, 25, 20, 23,  9, 6]],
-	["Basilio (L)", ["Warrior", 		10, 67, 37,  4, 21, 28, 23, 25, 10, 6]],
-	["Flavia (N)", 	["Hero", 			10, 48, 25,  5, 28, 26, 21, 23, 11, 6]],
-	["Flavia (H)", 	["Hero", 			10, 53, 28,  6, 32, 30, 24, 25, 13, 6]],
-	["Flavia (L)", 	["Hero", 			10, 58, 31,  7, 35, 35, 27, 27, 14, 6]],
-	["Gangrel (N)", ["Trickster", 		15, 49, 21, 20, 29, 33, 15, 18, 17, 6]],
-	["Gangrel (H)", ["Trickster", 		15, 49, 21, 20, 29, 33, 15, 18, 17, 6]],
-	["Gangrel (L)", ["Trickster", 		15, 49, 21, 20, 29, 33, 15, 18, 17, 6]],
-	["Walhart (N)", ["Conqueror", 		30, 71, 39, 15, 33, 32, 30, 35, 19, 8]],
-	["Walhart (H)", ["Conqueror", 		30, 79, 44, 16, 36, 35, 33, 38, 21, 8]],
-	["Walhart (L)", ["Conqueror", 		30, 80, 49, 17, 38, 37, 35, 42, 23, 8]],
-	["Emmeryn (N)", ["Sage", 			10, 42,  5, 26, 23, 25, 13, 12, 20, 6]],
-	["Emmeryn (H)", ["Sage", 			10, 47,  6, 31, 27, 29, 17, 14, 23, 6]],
-	["Emmeryn (L)", ["Sage", 			10, 52,  6, 35, 30, 32, 21, 16, 25, 6]],
-	["Yenfay (N)", 	["Swordmaster", 	20, 60, 30,  5, 39, 40, 28, 21, 18, 6]],
-	["Yenfay (H)", 	["Swordmaster", 	20, 66, 34,  6, 43, 45, 32, 23, 20, 6]],
-	["Yenfay (L)", 	["Swordmaster", 	20, 72, 38,  6, 46, 49, 35, 25, 22, 6]],
-	["Aversa (N)", 	["Dark Flier", 		20, 55, 24, 31, 29, 32, 26, 21, 28, 8]],
-	["Aversa (H)", 	["Dark Flier", 		20, 60, 26, 35, 32, 36, 30, 23, 30, 8]],
-	["Aversa (L)", 	["Dark Flier", 		20, 65, 28, 38, 36, 39, 34, 25, 33, 8]],
-	["Priam (N)", 	["Hero", 			20, 74, 40,  3, 44, 38, 35, 39, 25, 6]],
-	["Priam (H)", 	["Hero", 			20, 80, 45,  4, 47, 41, 38, 42, 26, 6]],
-	["Priam (L)", 	["Hero", 			20, 80, 45,  4, 47, 42, 41, 42, 27, 6]],
+	["Cherche", 	["Wyvern Rider", 	12, 30, 14,  1, 12, 11,  8, 15,  2, 7]],
+	["Henry", 		["Dark Mage", 		12, 28,  6, 13, 14,  8, 10, 12,  5, 5]],
+	["Sayri", 		["Swordmaster", 	 1, 39, 17,  7, 23, 26, 20, 12, 10, 6]],
+	["Tiki", 		["Manakete", 		20, 39, 18, 10, 14, 16, 18, 15, 12, 6]],
+	["Basilio", 	["Warrior", 		10, 56, 30,  3, 25, 21, 18, 20,  8, 6]],
+	["Flavia", 		["Hero", 			10, 48, 25,  5, 28, 26, 21, 23, 11, 6]],
+	["Gangrel", 	["Trickster", 		15, 49, 21, 20, 29, 33, 15, 18, 17, 6]],
+	["Walhart", 	["Conqueror", 		30, 71, 39, 15, 33, 32, 30, 35, 19, 8]],
+	["Emmeryn", 	["Sage", 			10, 42,  5, 26, 23, 25, 13, 12, 20, 6]],
+	["Yenfay", 		["Swordmaster", 	20, 60, 30,  5, 39, 40, 28, 21, 18, 6]],
+	["Aversa", 		["Dark Flier", 		20, 55, 24, 31, 29, 32, 26, 21, 28, 8]],
+	["Priam", 		["Hero", 			20, 74, 40,  3, 44, 38, 35, 39, 25, 6]],
 	["Lucina", 		["Lord (F)", 		10, 12,  5,  1,  8,  4, 13,  3,  3, 5]],
 	["Owain", 		["Myrmidon", 		10, 10,  4,  4,  5,  6,  9,  6,  5, 5]],
 	["Inigo", 		["Mercenary", 		10, 11,  5,  2,  4,  9, 12,  4,  4, 5]],
@@ -264,6 +228,26 @@ var charBases = new Map([
 	["Laurent", 	["Mage", 			10, 10,  3,  7,  7,  4, 11,  4,  5, 5]],
 	["Noire", 		["Archer", 			10,  8,  5,  3,  4,  7, 10,  4,  6, 5]],
 	["Nah", 		["Manakete", 		10,  5,  3,  3,  5,  6,  8,  3,  3, 6]]
+]);
+
+const charBonuses = new Map([
+	["Gregor", 		[0, 1]],
+	["Nowi", 		[0, 1]],
+	["Libra", 		[1, 2]],
+	["Tharja", 		[0, 1]],
+	["Anna", 		[1, 2]],
+	["Cherche", 	[1, 3]],
+	["Henry", 		[1, 3]],
+	["Sayri", 		[2, 4]],
+	["Tiki", 		[4, 8]],
+	["Basilio", 	[5, 10]],
+	["Flavia", 		[5, 10]],
+	["Gangrel", 	[6, 12]],
+	["Walhart", 	[6, 12]],
+	["Emmeryn", 	[6, 12]],
+	["Yenfay", 		[6, 12]],
+	["Aversa", 		[6, 12]],
+	["Priam", 		[6, 12]]
 ]);
 
 var charCaps = new Map([
@@ -1118,11 +1102,7 @@ function updateSiblingLevels(){
 
 function updateParent(){
 	parentName = parent.value.replaceAll("'", "");
-	let parentBases = parentName;
-	if (bonusStats.includes(parentBases)){
-		parentBases += " (" + difficulty.value[0].toUpperCase() + ")";
-	}
-	parentReclasses = [[charBases.get(parentBases)[0], charBases.get(parentBases)[1]]];
+	parentReclasses = [[charBases.get(parentName)[0], charBases.get(parentName)[1]]];
 	if (promotedClasses.includes(parentReclasses[0][0])){
 		parentClass.selectedIndex = 1;
 	}
@@ -1147,11 +1127,7 @@ function updateParent(){
 
 function updateSpouse(){
 	spouseName = spouse.value.replaceAll("'", "");
-	let spouseBases = spouseName;
-	if (bonusStats.includes(spouseBases)){
-		spouseBases += " (" + difficulty.value[0].toUpperCase() + ")";
-	}
-	spouseReclasses = [[charBases.get(spouseBases)[0], charBases.get(spouseBases)[1]]];
+	spouseReclasses = [[charBases.get(spouseName)[0], charBases.get(spouseName)[1]]];
 	if (promotedClasses.includes(spouseReclasses[0][0])){
 		spouseClass.selectedIndex = 1;
 	}
@@ -1313,13 +1289,20 @@ function generateSiblingBases(){
 function generateParentTable(){
 	let parentName = parent.value.replaceAll("'", "");
 	aptitudeStats = parentName == "Donnel" && aptitude.selectedIndex <= 1;
-	let parentBases = parentName;
-	if (bonusStats.includes(parentBases)){
-		parentBases += " (" + difficulty.value[0].toUpperCase() + ")";
-	}
 	for (let i = 0; i < 9; i++){
-		parentCurrentStats[i] = charBases.get(parentBases)[i+2];
-		parentStatGrowth[i] = parentCurrentStats[i] - classBases.get(charBases.get(parentBases)[0])[i];
+		parentCurrentStats[i] = charBases.get(parentName)[i+2];
+		if ([...charBonuses.keys()].includes(parentName) && difficulty.selectedIndex > 0){
+			if (parentName != "Libra" || i != 3){
+				parentCurrentStats[i] += Math.round((charGrowths.get(parentName)[i] + classGrowths.get(charBases.get(parentName)[0])[i]) / 100 * (charBonuses.get(parentName)[difficulty.selectedIndex - 1]));
+				if ((parentName == "Tiki" && i == 3) || (["Tiki", "Basilio", "Flavia"].includes(parentName) && i == 4)){
+					parentCurrentStats[i] += difficulty.selectedIndex;
+				}
+				if ((parentName == "Gangrel" && [1, 2].includes(i))){
+					parentCurrentStats[i] += difficulty.selectedIndex * 2;
+				}
+			}
+		}
+		parentStatGrowth[i] = parentCurrentStats[i] - classBases.get(charBases.get(parentName)[0])[i];
 	}
 	parentCurrentStats[9] = 0;
 	while (parentStats.rows.length > 1){
@@ -1378,7 +1361,7 @@ function generateParentTable(){
 		}
 		let startingLevel = 1;
 		if (i == 0){
-			startingLevel = charBases.get(parentBases)[1] ;
+			startingLevel = charBases.get(parentName)[1] ;
 		}
 		this["parentRow" + parentStats.rows.length + "level"].innerHTML = "<b><u>"+startingLevel+"</u></b>";
 		for (let k = 0; k < 9; k++){
@@ -1461,13 +1444,20 @@ function generateParentTable(){
 function generateSpouseTable(){
 	let spouseName = spouse.value.replaceAll("'", "");
 	aptitudeStats = spouseName == "Donnel" && aptitude.selectedIndex <= 1;
-	let spouseBases = spouseName;
-	if (bonusStats.includes(spouseBases)){
-		spouseBases += " (" + difficulty.value[0].toUpperCase() + ")";
-	}
 	for (let i = 0; i < 9; i++){
-		spouseCurrentStats[i] = charBases.get(spouseBases)[i+2];
-		spouseStatGrowth[i] = spouseCurrentStats[i] - classBases.get(charBases.get(spouseBases)[0])[i];
+		spouseCurrentStats[i] = charBases.get(spouseName)[i+2];
+		if ([...charBonuses.keys()].includes(spouseName) && difficulty.selectedIndex > 0){
+			if (spouseName != "Libra" || i != 3){
+				spouseCurrentStats[i] += Math.round((charGrowths.get(spouseName)[i] + classGrowths.get(charBases.get(spouseName)[0])[i]) / 100 * (charBonuses.get(spouseName)[difficulty.selectedIndex - 1]));
+				if ((spouseName == "Tiki" && i == 3) || (["Tiki", "Basilio", "Flavia"].includes(spouseName) && i == 4)){
+					spouseCurrentStats[i] += difficulty.selectedIndex;
+				}
+				if ((spouseName == "Gangrel" && [1, 2].includes(i))){
+					spouseCurrentStats[i] += difficulty.selectedIndex * 2;
+				}
+			}
+		}
+		spouseStatGrowth[i] = spouseCurrentStats[i] - classBases.get(charBases.get(spouseName)[0])[i];
 	}
 	spouseCurrentStats[9] = 0;
 	while (spouseStats.rows.length > 1){
@@ -1526,7 +1516,7 @@ function generateSpouseTable(){
 		}
 		let startingLevel = 1;
 		if (i == 0){
-			startingLevel = charBases.get(spouseBases)[1] ;
+			startingLevel = charBases.get(spouseName)[1] ;
 		}
 		this["spouseRow" + spouseStats.rows.length + "level"].innerHTML = "<b><u>"+startingLevel+"</u></b>";
 		for (let k = 0; k < 9; k++){
@@ -2038,11 +2028,7 @@ function levelSibling(){
 
 function resetParent(){
 	let parentName = parent.value.replace("'", "");
-	let parentBases = parentName;
-	if (bonusStats.includes(parentBases)){
-		parentBases += " (" + difficulty.value[0].toUpperCase() + ")";
-	}
-	parentReclasses = [[parentReclasses[0][0], charBases.get(parentBases)[1]]];
+	parentReclasses = [[parentReclasses[0][0], charBases.get(parentName)[1]]];
 	while (parentClass.length > 0){
 		parentClass.remove(0);
 		parentClass2.remove(0);
@@ -2064,11 +2050,7 @@ function resetParent(){
 
 function resetSpouse(){
 	let spouseName = spouse.value.replace("'", "");
-	let spouseBases = spouseName;
-	if (bonusStats.includes(spouseBases)){
-		spouseBases += " (" + difficulty.value[0].toUpperCase() + ")";
-	}
-	spouseReclasses = [[spouseReclasses[0][0], charBases.get(spouseBases)[1]]];
+	spouseReclasses = [[spouseReclasses[0][0], charBases.get(spouseName)[1]]];
 	while (spouseClass.length > 0){
 		spouseClass.remove(0);
 		spouseClass2.remove(0);
