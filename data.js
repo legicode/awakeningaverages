@@ -1411,7 +1411,7 @@ function generateParentTable(){
 						statIncrease = (charGrowths.get(parentName)[k] + classGrowths.get(parentReclasses[i][0])[k] + 20 * (aptitudeStats && k != 8)) / 100;
 					}
 					else {
-						statIncrease = Math.round((j-1) * (charGrowths.get(parentName)[k] + classGrowths.get(parentReclasses[i][0])[k]) / 100 + 20 * (aptitudeStats && k != 8)) - Math.round((j-2) * (charGrowths.get(parentName)[k] + classGrowths.get(parentReclasses[i][0])[k] + 20 * (aptitudeStats && k != 8)) / 100);
+						statIncrease = Math.round((j-1) * (charGrowths.get(parentName)[k] + classGrowths.get(parentReclasses[i][0])[k] + 20 * (aptitudeStats && k != 8)) / 100) - Math.round((j-2) * (charGrowths.get(parentName)[k] + classGrowths.get(parentReclasses[i][0])[k] + 20 * (aptitudeStats && k != 8)) / 100);
 					}
 					if (parentCurrentStats[k] + statIncrease > classCaps.get(parentReclasses[i][0])[k] + charCaps.get(parentName)[k]){
 						statIncrease = classCaps.get(parentReclasses[i][0])[k] + charCaps.get(parentName)[k] - parentCurrentStats[k];
