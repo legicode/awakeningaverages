@@ -1293,12 +1293,14 @@ function generateParentTable(){
 		parentCurrentStats[i] = charBases.get(parentName)[i+2];
 		if ([...charBonuses.keys()].includes(parentName) && difficulty.selectedIndex > 0){
 			if (parentName != "Libra" || i != 3){
-				parentCurrentStats[i] += Math.round((charGrowths.get(parentName)[i] + classGrowths.get(charBases.get(parentName)[0])[i]) / 100 * (charBonuses.get(parentName)[difficulty.selectedIndex - 1]));
 				if ((parentName == "Tiki" && i == 3) || (["Tiki", "Basilio", "Flavia"].includes(parentName) && i == 4)){
-					parentCurrentStats[i] += difficulty.selectedIndex;
+					parentCurrentStats[i] += Math.round((charGrowths.get(parentName)[i] + classGrowths.get(charBases.get(parentName)[0])[i] + 20) / 100 * (charBonuses.get(parentName)[difficulty.selectedIndex - 1]));
 				}
-				if ((parentName == "Gangrel" && [1, 2].includes(i))){
-					parentCurrentStats[i] += difficulty.selectedIndex * 2;
+				else if ((parentName == "Gangrel" && [1, 2].includes(i))){
+					parentCurrentStats[i] += Math.round((charGrowths.get(parentName)[i] + classGrowths.get(charBases.get(parentName)[0])[i] + 30) / 100 * (charBonuses.get(parentName)[difficulty.selectedIndex - 1]));
+				}
+				else {
+					parentCurrentStats[i] += Math.round((charGrowths.get(parentName)[i] + classGrowths.get(charBases.get(parentName)[0])[i]) / 100 * (charBonuses.get(parentName)[difficulty.selectedIndex - 1]));
 				}
 			}
 		}
@@ -1447,13 +1449,15 @@ function generateSpouseTable(){
 	for (let i = 0; i < 9; i++){
 		spouseCurrentStats[i] = charBases.get(spouseName)[i+2];
 		if ([...charBonuses.keys()].includes(spouseName) && difficulty.selectedIndex > 0){
-			if (spouseName != "Libra" || i != 3){
-				spouseCurrentStats[i] += Math.round((charGrowths.get(spouseName)[i] + classGrowths.get(charBases.get(spouseName)[0])[i]) / 100 * (charBonuses.get(spouseName)[difficulty.selectedIndex - 1]));
-				if ((spouseName == "Tiki" && i == 3) || (["Tiki", "Basilio", "Flavia"].includes(spouseName) && i == 4)){
-					spouseCurrentStats[i] += difficulty.selectedIndex;
+			if (parentName != "Libra" || i != 3){
+				if ((parentName == "Tiki" && i == 3) || (["Tiki", "Basilio", "Flavia"].includes(parentName) && i == 4)){
+					parentCurrentStats[i] += Math.round((charGrowths.get(parentName)[i] + classGrowths.get(charBases.get(parentName)[0])[i] + 20) / 100 * (charBonuses.get(parentName)[difficulty.selectedIndex - 1]));
 				}
-				if ((spouseName == "Gangrel" && [1, 2].includes(i))){
-					spouseCurrentStats[i] += difficulty.selectedIndex * 2;
+				else if ((parentName == "Gangrel" && [1, 2].includes(i))){
+					parentCurrentStats[i] += Math.round((charGrowths.get(parentName)[i] + classGrowths.get(charBases.get(parentName)[0])[i] + 30) / 100 * (charBonuses.get(parentName)[difficulty.selectedIndex - 1]));
+				}
+				else {
+					parentCurrentStats[i] += Math.round((charGrowths.get(parentName)[i] + classGrowths.get(charBases.get(parentName)[0])[i]) / 100 * (charBonuses.get(parentName)[difficulty.selectedIndex - 1]));
 				}
 			}
 		}
