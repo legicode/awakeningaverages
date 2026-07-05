@@ -95,7 +95,7 @@ const flawGrowths = new Map([
 	["Speed",		[0, 0, 0, -5, -10, -5, 0, 0]],
 	["Luck",		[0, -5, -5, 0, 0, -10, 0, 0]],
 	["Defense",		[0, 0, 0, 0, 0, -5, -10, -5]],
-	["Resistance",	[0, 0, -5, 0, -5, 0, 0, -15]]
+	["Resistance",	[0, 0, -5, 0, -5, 0, 0, -10]]
 ]);
 
 const assetCaps = new Map([
