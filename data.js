@@ -1,7 +1,7 @@
 const stats = ["HP", "STR", "MAG", "SKL", "SPD", "LCK", "DEF", "RES", "MOV"];
 const statsfull = ["HP", "Strength", "Magic", "Skill", "Speed", "Luck", "Defense", "Resistance", "Movement"];
 
-const characters = ["Robin (M)", "Robin (F)", "Chrom", "Lissa", "Frederick", "Sully", "Virion", "Vaike", "Stahl", "Miriel", "Sumia", "Kellam", "Donnel", "Lonqu", "Ricken", 
+const characters = ["Robin (M)", "Robin (F)", "Chrom", "Lissa", "Frederick", "Sully", "Virion", "Vaike", "Stahl", "Miriel", "Sumia", "Kellam", "Lonqu", "Donnel", "Ricken", 
 	"Maribelle", "Panne", "Gaius", "Cordelia", "Gregor", "Nowi", "Libra", "Tharja", "Anna", "Olivia", "Cherche", "Henry", "Sayri", "Tiki", "Basilio", "Flavia", "Gangrel", "Walhart", 
 	"Emmeryn", "Yenfay", "Aversa", "Priam", "Lucina", "Owain", "Inigo", "Brady", "Kjelle", "Cynthia", "Severa", "Gerome", "Morgan", "Marc", "Yarne", "Laurent", "Noire", "Nah"];
 
@@ -35,8 +35,8 @@ const genders = new Map([
 	["Miriel", 		"F"],
 	["Sumia", 		"F"],
 	["Kellam", 		"M"],
-	["Donnel", 		"M"],
 	["Lonqu",		"M"],
+	["Donnel", 		"M"],
 	["Ricken", 		"M"],
 	["Maribelle", 	"F"],
 	["Panne", 		"F"],
@@ -134,8 +134,8 @@ var charGrowths = new Map([
 	["Miriel", 		[35, 15, 40, 40, 40, 50, 20, 30, 0]],
 	["Sumia", 		[35, 30, 20, 45, 45, 60, 25, 30, 0]],
 	["Kellam", 		[50, 40, 15, 40, 35, 35, 55, 30, 0]],
-	["Donnel", 		[50, 45, 15, 40, 45, 80, 35, 15, 0]],
 	["Lonqu", 		[40, 35, 20, 50, 50, 55, 25, 20, 0]],
+	["Donnel", 		[50, 45, 15, 40, 45, 80, 35, 15, 0]],
 	["Ricken", 		[50, 20, 35, 30, 30, 65, 30, 25, 0]],
 	["Maribelle", 	[30, 20, 40, 40, 30, 80, 10, 40, 0]],
 	["Panne", 		[60, 45, 15, 50, 55, 40, 40, 15, 0]],
@@ -189,8 +189,8 @@ var charBases = new Map([
 	["Miriel", 		["Mage", 			 1, 18,  0,  6,  5,  7,  6,  3,  4, 5]],
 	["Sumia", 		["Pegasus Knight", 	 1, 18,  6,  3, 11, 11,  8,  5,  7, 7]],
 	["Kellam", 		["Knight", 			 5, 21, 10,  0,  7,  5,  3, 12,  2, 4]],
-	["Donnel", 		["Villager", 		 1, 16,  4,  0,  2,  3, 11,  3,  0, 5]],
 	["Lonqu", 		["Myrmidon", 		 4, 20,  6,  1, 12, 13,  7,  7,  2, 5]],
+	["Donnel", 		["Villager", 		 1, 16,  4,  0,  2,  3, 11,  3,  0, 5]],
 	["Ricken", 		["Mage", 			 3, 20,  3,  8,  6,  5, 10,  6,  3, 5]],
 	["Maribelle", 	["Troubador", 		 3, 18,  0,  5,  4,  6,  5,  3,  6, 7]],
 	["Panne", 		["Taguel (F)", 		 6, 28,  8,  1,  9, 10,  8,  7,  3, 6]],
@@ -264,8 +264,8 @@ var charCaps = new Map([
 	["Miriel", 		[0, -2,  3,  1,  1,  0, -2,  0, 0]],
 	["Sumia", 		[0, -2,  0,  2,  3,  0, -2,  1, 0]],
 	["Kellam", 		[0,  1,  0,  1, -2, -2,  3,  0, 0]],
-	["Donnel", 		[0,  1, -1, -1, -1,  3,  1, -1, 0]],
 	["Lonqu", 		[0,  0,  0,  3,  3,  0, -2, -2, 0]],
+	["Donnel", 		[0,  1, -1, -1, -1,  3,  1, -1, 0]],
 	["Ricken", 		[0, -1,  2,  0,  0,  1, -1,  0, 0]],
 	["Maribelle", 	[0, -3,  2,  1,  0,  3, -3,  2, 0]],
 	["Panne", 		[0,  2, -1,  2,  3, -1,  1, -1, 0]],
@@ -565,8 +565,8 @@ const classPools = new Map([
 	["Miriel", 		["Mage", "Sage", "Dark Knight", "Dark Mage", "Sorcerer", "Troubador", "Valkyrie", "War Cleric", "Dread Fighter", "Bride"]],
 	["Sumia", 		["Pegasus Knight", "Dark Flier", "Falcon Knight", "Cleric", "War Cleric", "Sage", "Knight", "Great Knight", "General", "Dread Fighter", "Bride"]],
 	["Kellam", 		["Knight", "General", "Great Knight", "Thief", "Assassin", "Trickster", "Priest", "War Monk", "Sage", "Dread Fighter", "Groom"]],
-	["Donnel", 		["Villager", "Mercenary", "Hero", "Bow Knight", "Fighter", "Warrior", "Dread Fighter", "Groom"]],
 	["Lonqu", 		["Myrmidon", "Swordmaster", "Assassin", "Thief", "Trickster", "Wyvern Rider", "Wyvern Lord", "Griffon Rider", "Dread Fighter", "Groom"]],
+	["Donnel", 		["Villager", "Mercenary", "Hero", "Bow Knight", "Fighter", "Warrior", "Dread Fighter", "Groom"]],
 	["Ricken", 		["Mage", "Sage", "Dark Knight", "Cavalier", "Paladin", "Great Knight", "Archer", "Bow Knight", "Sniper", "Dread Fighter", "Groom"]],
 	["Maribelle", 	["Troubador", "Valkyrie", "War Cleric", "Pegasus Knight", "Falcon Knight", "Dark Flier", "Mage", "Sage", "Dark Knight", "Dread Fighter", "Bride"]],
 	["Panne", 		["Taguel (F)", "Thief", "Assassin", "Trickster", "Wyvern Rider", "Wyvern Lord", "Griffon Rider", "Dread Fighter", "Bride"]],
